@@ -38,6 +38,7 @@
     <peripheral>
       <name>AES</name>
       <description>Peripheral AES</description>
+      <groupName>AES</groupName>
       <baseAddress>0x6003a000</baseAddress>
       <registers>
         <register>
@@ -401,6 +402,7 @@ For DMA-AES; 0 = idle; 1 = busy; 2 = calculation_done.</description>
     <peripheral>
       <name>APB_SARADC</name>
       <description>Peripheral APB_SARADC</description>
+      <groupName>APB_SARADC</groupName>
       <baseAddress>0x3f440000</baseAddress>
       <registers>
         <register>
@@ -1185,6 +1187,7 @@ alternate-channel scan mode.</description>
     <peripheral>
       <name>DEDICATED_GPIO</name>
       <description>Peripheral DEDICATED_GPIO</description>
+      <groupName>DEDIC_GPIO</groupName>
       <baseAddress>0x3f4cf000</baseAddress>
       <registers>
         <register>
@@ -1787,6 +1790,7 @@ alternate-channel scan mode.</description>
     <peripheral>
       <name>DS</name>
       <description>Peripheral DS</description>
+      <groupName>DS</groupName>
       <baseAddress>0x6003d000</baseAddress>
       <registers>
         <register>
@@ -1941,6 +1945,7 @@ alternate-channel scan mode.</description>
     <peripheral>
       <name>EFUSE</name>
       <description>Peripheral EFUSE</description>
+      <groupName>EFUSE</groupName>
       <baseAddress>0x3f41a000</baseAddress>
       <registers>
         <register>
@@ -3715,6 +3720,7 @@ alternate-channel scan mode.</description>
     <peripheral>
       <name>GPIO</name>
       <description>Peripheral GPIO</description>
+      <groupName>GPIO</groupName>
       <baseAddress>0x3f404000</baseAddress>
       <registers>
         <register>
@@ -4324,6 +4330,7 @@ alternate-channel scan mode.</description>
     <peripheral>
       <name>GPIO_SD</name>
       <description>Peripheral GPIO_SD</description>
+      <groupName>GPIOSD</groupName>
       <baseAddress>0x3f404f00</baseAddress>
       <registers>
         <register>
@@ -4403,6 +4410,7 @@ alternate-channel scan mode.</description>
     <peripheral>
       <name>HMAC</name>
       <description>Peripheral HMAC</description>
+      <groupName>HMAC</groupName>
       <baseAddress>0x6003e000</baseAddress>
       <registers>
         <register>
@@ -4681,6 +4689,7 @@ alternate-channel scan mode.</description>
     <peripheral>
       <name>I2C0</name>
       <description>Peripheral I2C</description>
+      <groupName>I2C</groupName>
       <baseAddress>0x3f413000</baseAddress>
       <registers>
         <register>
@@ -6296,6 +6305,7 @@ Information.</description>
     <peripheral>
       <name>I2S</name>
       <description>Peripheral I2S</description>
+      <groupName>I2S</groupName>
       <baseAddress>0x3f40f000</baseAddress>
       <registers>
         <register>
@@ -7987,6 +7997,7 @@ Information.</description>
     <peripheral>
       <name>INTERRUPT</name>
       <description>Peripheral INTERRUPT</description>
+      <groupName>INTERRUPT</groupName>
       <baseAddress>0x3f4c2000</baseAddress>
       <registers>
         <register>
@@ -9500,6 +9511,7 @@ Information.</description>
     <peripheral>
       <name>IO_MUX</name>
       <description>Peripheral IO_MUX</description>
+      <groupName>IO_MUX</groupName>
       <baseAddress>0x3f409000</baseAddress>
       <registers>
         <register>
@@ -12786,6 +12798,7 @@ Information.</description>
     <peripheral>
       <name>LEDC</name>
       <description>Peripheral LEDC</description>
+      <groupName>LEDC</groupName>
       <baseAddress>0x3f419000</baseAddress>
       <registers>
         <register>
@@ -13636,6 +13649,7 @@ The least significant eight bits represent the fractional part.</description>
     <peripheral>
       <name>PCNT</name>
       <description>Peripheral PCNT</description>
+      <groupName>PCNT</groupName>
       <baseAddress>0x3f417000</baseAddress>
       <registers>
         <register>
@@ -14093,6 +14107,7 @@ Any pulses with width less than this will be ignored when the filter is enabled.
     <peripheral>
       <name>RMT</name>
       <description>Peripheral RMT</description>
+      <groupName>RMT</groupName>
       <baseAddress>0x3f416000</baseAddress>
       <registers>
         <register>
@@ -15145,6 +15160,7 @@ Any pulses with width less than this will be ignored when the filter is enabled.
     <peripheral>
       <name>RSA</name>
       <description>Peripheral RSA</description>
+      <groupName>RSA</groupName>
       <baseAddress>0x6003c000</baseAddress>
       <registers>
         <register>
@@ -15342,6 +15358,7 @@ Any pulses with width less than this will be ignored when the filter is enabled.
     <peripheral>
       <name>RTCIO</name>
       <description>Peripheral RTCIO</description>
+      <groupName>RTCIO</groupName>
       <baseAddress>0x3f408400</baseAddress>
       <registers>
         <register>
@@ -16224,6 +16241,7 @@ Any pulses with width less than this will be ignored when the filter is enabled.
     <peripheral>
       <name>RTC_CNTL</name>
       <description>Peripheral RTC_CNTL</description>
+      <groupName>RTC_CNTL</groupName>
       <baseAddress>0x3f408000</baseAddress>
       <registers>
         <register>
@@ -20084,6 +20102,7 @@ proximity mode. Range: 0 – 255.</description>
     <peripheral>
       <name>SENS</name>
       <description>Peripheral SENS</description>
+      <groupName>SENS</groupName>
       <baseAddress>0x3f408800</baseAddress>
       <registers>
         <register>
@@ -22066,6 +22085,7 @@ proximity mode. Range: 0 – 255.</description>
     <peripheral>
       <name>SHA</name>
       <description>Peripheral SHA</description>
+      <groupName>SHA</groupName>
       <baseAddress>0x6003b000</baseAddress>
       <registers>
         <register>
@@ -22282,6 +22302,7 @@ proximity mode. Range: 0 – 255.</description>
     <peripheral>
       <name>SYSTEM</name>
       <description>Peripheral SYSTEM</description>
+      <groupName>SYSTEM</groupName>
       <baseAddress>0x3f4c0000</baseAddress>
       <registers>
         <register>
@@ -23402,6 +23423,7 @@ proximity mode. Range: 0 – 255.</description>
     <peripheral>
       <name>SYSTIMER</name>
       <description>Peripheral SYSTIMER</description>
+      <groupName>SYSTIMER</groupName>
       <baseAddress>0x3f423000</baseAddress>
       <registers>
         <register>
@@ -23811,6 +23833,7 @@ ready to read timer value from registers; 1: Ready to read timer value from regi
     <peripheral>
       <name>TIMG0</name>
       <description>Peripheral TIMG</description>
+      <groupName>TIMG</groupName>
       <baseAddress>0x3f41f000</baseAddress>
       <registers>
         <register>
@@ -24702,6 +24725,7 @@ protection is enabled.</description>
     <peripheral>
       <name>UART0</name>
       <description>Peripheral UART</description>
+      <groupName>UART</groupName>
       <baseAddress>0x3f400000</baseAddress>
       <registers>
         <register>
@@ -26094,6 +26118,7 @@ The UART_RXFIFO_TOUT_INT interrupt will be triggered when the receiver takes mor
     <peripheral>
       <name>UHCI0</name>
       <description>Peripheral UHCI0</description>
+      <groupName>UHCI</groupName>
       <baseAddress>0x3f414000</baseAddress>
       <registers>
         <register>
@@ -27744,6 +27769,7 @@ If this bit is set to 0, UHCI decoder receiving payload data is end when 0xc0 is
     <peripheral>
       <name>XTS_AES</name>
       <description>Peripheral XTS_AES</description>
+      <groupName>XTS_AES</groupName>
       <baseAddress>0x6003a100</baseAddress>
       <registers>
         <register>
