@@ -26,7 +26,7 @@
     <revision>r0p0</revision>
     <endian>little</endian>
     <mpuPresent>false</mpuPresent>
-    <fpuPresent>true</fpuPresent>
+    <fpuPresent>false</fpuPresent>
     <nvicPrioBits>4</nvicPrioBits>
     <vendorSystickConfig>false</vendorSystickConfig>
   </cpu>
@@ -38,6 +38,7 @@
     <peripheral>
       <name>AES</name>
       <description>Peripheral AES</description>
+      <groupName>AES</groupName>
       <baseAddress>0x6003a000</baseAddress>
       <registers>
         <register>
@@ -509,6 +510,7 @@
     <peripheral>
       <name>APB_CTRL</name>
       <description>Peripheral APB_CTRL</description>
+      <groupName>APB_CTRL</groupName>
       <baseAddress>0x60026000</baseAddress>
       <registers>
         <register>
@@ -969,8 +971,8 @@
           </fields>
         </register>
         <register>
-          <name>REDCY_SIG0_REG</name>
-          <description>APB_CTRL_REDCY_SIG0_REG_REG</description>
+          <name>REDCY_SIG0</name>
+          <description>APB_CTRL_REDCY_SIG0_REG</description>
           <addressOffset>0x94</addressOffset>
           <size>32</size>
           <fields>
@@ -990,8 +992,8 @@
           </fields>
         </register>
         <register>
-          <name>REDCY_SIG1_REG</name>
-          <description>APB_CTRL_REDCY_SIG1_REG_REG</description>
+          <name>REDCY_SIG1</name>
+          <description>APB_CTRL_REDCY_SIG1_REG</description>
           <addressOffset>0x98</addressOffset>
           <size>32</size>
           <fields>
@@ -1153,8 +1155,8 @@
           </fields>
         </register>
         <register>
-          <name>PERI_BACKUP_CONFIG_REG</name>
-          <description>APB_CTRL_PERI_BACKUP_CONFIG_REG_REG</description>
+          <name>PERI_BACKUP_CONFIG</name>
+          <description>APB_CTRL_PERI_BACKUP_CONFIG_REG</description>
           <addressOffset>0xb4</addressOffset>
           <size>32</size>
           <resetValue>0x6480</resetValue>
@@ -1206,8 +1208,8 @@
           </fields>
         </register>
         <register>
-          <name>PERI_BACKUP_APB_ADDR_REG</name>
-          <description>APB_CTRL_PERI_BACKUP_APB_ADDR_REG_REG</description>
+          <name>PERI_BACKUP_APB_ADDR</name>
+          <description>APB_CTRL_PERI_BACKUP_APB_ADDR_REG</description>
           <addressOffset>0xb8</addressOffset>
           <size>32</size>
           <fields>
@@ -1220,8 +1222,8 @@
           </fields>
         </register>
         <register>
-          <name>PERI_BACKUP_MEM_ADDR_REG</name>
-          <description>APB_CTRL_PERI_BACKUP_MEM_ADDR_REG_REG</description>
+          <name>PERI_BACKUP_MEM_ADDR</name>
+          <description>APB_CTRL_PERI_BACKUP_MEM_ADDR_REG</description>
           <addressOffset>0xbc</addressOffset>
           <size>32</size>
           <fields>
@@ -1339,6 +1341,7 @@
     <peripheral>
       <name>APB_SARADC</name>
       <description>Peripheral APB_SARADC</description>
+      <groupName>APB_SARADC</groupName>
       <baseAddress>0x60040000</baseAddress>
       <registers>
         <register>
@@ -2143,6 +2146,7 @@
     <peripheral>
       <name>ASSIST_DEBUG</name>
       <description>Peripheral ASSIST_DEBUG</description>
+      <groupName>ASSIST_DEBUG</groupName>
       <baseAddress>0x600ce000</baseAddress>
       <registers>
         <register>
@@ -3099,6 +3103,7 @@
     <peripheral>
       <name>DMA</name>
       <description>Peripheral DMA</description>
+      <groupName>DMA</groupName>
       <baseAddress>0x6003f000</baseAddress>
       <registers>
         <register>
@@ -6224,6 +6229,7 @@
     <peripheral>
       <name>DS</name>
       <description>Peripheral DS</description>
+      <groupName>DS</groupName>
       <baseAddress>0x6003d000</baseAddress>
       <registers>
         <register>
@@ -6379,6 +6385,7 @@
     <peripheral>
       <name>EFUSE</name>
       <description>Peripheral EFUSE</description>
+      <groupName>EFUSE</groupName>
       <baseAddress>0x60008800</baseAddress>
       <registers>
         <register>
@@ -9021,6 +9028,7 @@
     <peripheral>
       <name>GPIO</name>
       <description>Peripheral GPIO</description>
+      <groupName>GPIO</groupName>
       <baseAddress>0x60004000</baseAddress>
       <registers>
         <register>
@@ -9392,7 +9400,7 @@
           </fields>
         </register>
         <register>
-          <name>CLOCK_GATE_REG</name>
+          <name>CLOCK_GATE</name>
           <description>GPIO clock gate register</description>
           <addressOffset>0x62c</addressOffset>
           <size>32</size>
@@ -9407,7 +9415,7 @@
           </fields>
         </register>
         <register>
-          <name>REG_DATE_REG</name>
+          <name>REG_DATE</name>
           <description>GPIO version register</description>
           <addressOffset>0x6fc</addressOffset>
           <size>32</size>
@@ -9426,6 +9434,7 @@
     <peripheral>
       <name>GPIOSD</name>
       <description>Peripheral GPIOSD</description>
+      <groupName>GPIOSD</groupName>
       <baseAddress>0x60004f00</baseAddress>
       <registers>
         <register>
@@ -9505,6 +9514,7 @@
     <peripheral>
       <name>HMAC</name>
       <description>Peripheral HMAC</description>
+      <groupName>HMAC</groupName>
       <baseAddress>0x6003e000</baseAddress>
       <registers>
         <register>
@@ -9764,6 +9774,7 @@
     <peripheral>
       <name>I2C</name>
       <description>Peripheral I2C</description>
+      <groupName>I2C</groupName>
       <baseAddress>0x60013000</baseAddress>
       <registers>
         <register>
@@ -10985,6 +10996,7 @@
     <peripheral>
       <name>I2S</name>
       <description>Peripheral I2S</description>
+      <groupName>I2S</groupName>
       <baseAddress>0x6002d000</baseAddress>
       <registers>
         <register>
@@ -12117,6 +12129,7 @@
     <peripheral>
       <name>INTERRUPT_CORE0</name>
       <description>Peripheral INTERRUPT_CORE0</description>
+      <groupName>INTERRUPT_CORE0</groupName>
       <baseAddress>0x600c2000</baseAddress>
       <registers>
         <register>
@@ -13571,6 +13584,7 @@
     <peripheral>
       <name>IO_MUX</name>
       <description>Peripheral IO_MUX</description>
+      <groupName>IO_MUX</groupName>
       <baseAddress>0x60009000</baseAddress>
       <registers>
         <register>
@@ -13697,6 +13711,7 @@
     <peripheral>
       <name>LEDC</name>
       <description>Peripheral LEDC</description>
+      <groupName>LEDC</groupName>
       <baseAddress>0x60019000</baseAddress>
       <registers>
         <register>
@@ -15257,6 +15272,7 @@
     <peripheral>
       <name>RMT</name>
       <description>Peripheral RMT</description>
+      <groupName>RMT</groupName>
       <baseAddress>0x60016000</baseAddress>
       <registers>
         <register>
@@ -16698,6 +16714,7 @@
     <peripheral>
       <name>RSA</name>
       <description>Peripheral RSA</description>
+      <groupName>RSA</groupName>
       <baseAddress>0x6003c000</baseAddress>
       <registers>
         <register>
@@ -16919,6 +16936,7 @@
     <peripheral>
       <name>RTC_CNTL</name>
       <description>Peripheral RTC_CNTL</description>
+      <groupName>RTC_CNTL</groupName>
       <baseAddress>0x60008000</baseAddress>
       <registers>
         <register>
@@ -18436,7 +18454,7 @@
           </fields>
         </register>
         <register>
-          <name>RTC_REG</name>
+          <name>RTC</name>
           <description>rtc configure register</description>
           <addressOffset>0x80</addressOffset>
           <size>32</size>
@@ -18455,25 +18473,25 @@
               <bitWidth>8</bitWidth>
             </field>
             <field>
-              <name>RTC_DBOOST_FORCE_PD</name>
+              <name>DBOOST_FORCE_PD</name>
               <description>RTC_DBOOST force power down</description>
               <bitOffset>28</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>RTC_DBOOST_FORCE_PU</name>
+              <name>DBOOST_FORCE_PU</name>
               <description>RTC_DBOOST force power up</description>
               <bitOffset>29</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>RTC_REGULATOR_FORCE_PD</name>
+              <name>REGULATOR_FORCE_PD</name>
               <description>RTC_REG force power down (for RTC_REG power down means decrease the voltage to 0.8v or lower )</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>RTC_REGULATOR_FORCE_PU</name>
+              <name>REGULATOR_FORCE_PU</name>
               <description>RTC_REG force power up</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
@@ -20096,6 +20114,7 @@
     <peripheral>
       <name>SENSITIVE</name>
       <description>Peripheral SENSITIVE</description>
+      <groupName>SENSITIVE</groupName>
       <baseAddress>0x600c1000</baseAddress>
       <registers>
         <register>
@@ -23295,8 +23314,8 @@
           </fields>
         </register>
         <register>
-          <name>CLOCK_GATE_REG</name>
-          <description>SENSITIVE_CLOCK_GATE_REG_REG</description>
+          <name>CLOCK_GATE</name>
+          <description>SENSITIVE_CLOCK_GATE_REG</description>
           <addressOffset>0x170</addressOffset>
           <size>32</size>
           <resetValue>0x1</resetValue>
@@ -23329,6 +23348,7 @@
     <peripheral>
       <name>SHA</name>
       <description>Peripheral SHA</description>
+      <groupName>SHA</groupName>
       <baseAddress>0x6003b000</baseAddress>
       <registers>
         <register>
@@ -23523,6 +23543,7 @@
     <peripheral>
       <name>SPI0</name>
       <description>Peripheral SPI0</description>
+      <groupName>SPI0</groupName>
       <baseAddress>0x60003000</baseAddress>
       <registers>
         <register>
@@ -24091,6 +24112,7 @@
     <peripheral>
       <name>SPI1</name>
       <description>Peripheral SPI1</description>
+      <groupName>SPI1</groupName>
       <baseAddress>0x60002000</baseAddress>
       <registers>
         <register>
@@ -25329,6 +25351,7 @@
     <peripheral>
       <name>SPI2</name>
       <description>Peripheral SPI2</description>
+      <groupName>SPI2</groupName>
       <baseAddress>0x60024000</baseAddress>
       <registers>
         <register>
@@ -26941,6 +26964,7 @@
     <peripheral>
       <name>SYSTEM</name>
       <description>Peripheral SYSTEM</description>
+      <groupName>SYSTEM</groupName>
       <baseAddress>0x600c0000</baseAddress>
       <registers>
         <register>
@@ -26985,7 +27009,7 @@
           </fields>
         </register>
         <register>
-          <name>CPU_PER_CONF_REG</name>
+          <name>CPU_PER_CONF</name>
           <description>cpu clock config register</description>
           <addressOffset>0x8</addressOffset>
           <size>32</size>
@@ -27018,7 +27042,7 @@
           </fields>
         </register>
         <register>
-          <name>MEM_PD_MASK_REG</name>
+          <name>MEM_PD_MASK</name>
           <description>memory power down mask register</description>
           <addressOffset>0xc</addressOffset>
           <size>32</size>
@@ -27638,7 +27662,7 @@
           </fields>
         </register>
         <register>
-          <name>CPU_INTR_FROM_CPU_0_REG</name>
+          <name>CPU_INTR_FROM_CPU_0</name>
           <description>interrupt generate register</description>
           <addressOffset>0x28</addressOffset>
           <size>32</size>
@@ -27652,7 +27676,7 @@
           </fields>
         </register>
         <register>
-          <name>CPU_INTR_FROM_CPU_1_REG</name>
+          <name>CPU_INTR_FROM_CPU_1</name>
           <description>interrupt generate register</description>
           <addressOffset>0x2c</addressOffset>
           <size>32</size>
@@ -27666,7 +27690,7 @@
           </fields>
         </register>
         <register>
-          <name>CPU_INTR_FROM_CPU_2_REG</name>
+          <name>CPU_INTR_FROM_CPU_2</name>
           <description>interrupt generate register</description>
           <addressOffset>0x30</addressOffset>
           <size>32</size>
@@ -27680,7 +27704,7 @@
           </fields>
         </register>
         <register>
-          <name>CPU_INTR_FROM_CPU_3_REG</name>
+          <name>CPU_INTR_FROM_CPU_3</name>
           <description>interrupt generate register</description>
           <addressOffset>0x34</addressOffset>
           <size>32</size>
@@ -27694,7 +27718,7 @@
           </fields>
         </register>
         <register>
-          <name>RSA_PD_CTRL_REG</name>
+          <name>RSA_PD_CTRL</name>
           <description>rsa memory power control register</description>
           <addressOffset>0x38</addressOffset>
           <size>32</size>
@@ -27721,7 +27745,7 @@
           </fields>
         </register>
         <register>
-          <name>EDMA_CTRL_REG</name>
+          <name>EDMA_CTRL</name>
           <description>edma clcok and reset register</description>
           <addressOffset>0x3c</addressOffset>
           <size>32</size>
@@ -27877,7 +27901,7 @@
           </fields>
         </register>
         <register>
-          <name>CLOCK_GATE_REG</name>
+          <name>CLOCK_GATE</name>
           <description>clock gating register</description>
           <addressOffset>0x54</addressOffset>
           <size>32</size>
@@ -28251,6 +28275,7 @@
     <peripheral>
       <name>SYSTIMER</name>
       <description>Peripheral SYSTIMER</description>
+      <groupName>SYSTIMER</groupName>
       <baseAddress>0x60023000</baseAddress>
       <registers>
         <register>
@@ -28856,12 +28881,13 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>TIMG</name>
+      <name>TIMG0</name>
       <description>Peripheral TIMG</description>
-      <baseAddress>0x0</baseAddress>
+      <groupName>TIMG</groupName>
+      <baseAddress>0x6001f000</baseAddress>
       <registers>
         <register>
-          <name>T0CONFIG_REG</name>
+          <name>T0CONFIG</name>
           <description>TIMG_T0CONFIG_REG.</description>
           <addressOffset>0x0</addressOffset>
           <size>32</size>
@@ -28914,7 +28940,7 @@
           </fields>
         </register>
         <register>
-          <name>T0LO_REG</name>
+          <name>T0LO</name>
           <description>TIMG_T0LO_REG.</description>
           <addressOffset>0x4</addressOffset>
           <size>32</size>
@@ -28929,7 +28955,7 @@
           </fields>
         </register>
         <register>
-          <name>T0HI_REG</name>
+          <name>T0HI</name>
           <description>TIMG_T0HI_REG.</description>
           <addressOffset>0x8</addressOffset>
           <size>32</size>
@@ -28944,7 +28970,7 @@
           </fields>
         </register>
         <register>
-          <name>T0UPDATE_REG</name>
+          <name>T0UPDATE</name>
           <description>TIMG_T0UPDATE_REG.</description>
           <addressOffset>0xc</addressOffset>
           <size>32</size>
@@ -28959,7 +28985,7 @@
           </fields>
         </register>
         <register>
-          <name>T0ALARMLO_REG</name>
+          <name>T0ALARMLO</name>
           <description>TIMG_T0ALARMLO_REG.</description>
           <addressOffset>0x10</addressOffset>
           <size>32</size>
@@ -28973,7 +28999,7 @@
           </fields>
         </register>
         <register>
-          <name>T0ALARMHI_REG</name>
+          <name>T0ALARMHI</name>
           <description>TIMG_T0ALARMHI_REG.</description>
           <addressOffset>0x14</addressOffset>
           <size>32</size>
@@ -28987,7 +29013,7 @@
           </fields>
         </register>
         <register>
-          <name>T0LOADLO_REG</name>
+          <name>T0LOADLO</name>
           <description>TIMG_T0LOADLO_REG.</description>
           <addressOffset>0x18</addressOffset>
           <size>32</size>
@@ -29001,7 +29027,7 @@
           </fields>
         </register>
         <register>
-          <name>T0LOADHI_REG</name>
+          <name>T0LOADHI</name>
           <description>TIMG_T0LOADHI_REG.</description>
           <addressOffset>0x1c</addressOffset>
           <size>32</size>
@@ -29015,7 +29041,7 @@
           </fields>
         </register>
         <register>
-          <name>T0LOAD_REG</name>
+          <name>T0LOAD</name>
           <description>TIMG_T0LOAD_REG.</description>
           <addressOffset>0x20</addressOffset>
           <size>32</size>
@@ -29030,7 +29056,7 @@
           </fields>
         </register>
         <register>
-          <name>WDTCONFIG0_REG</name>
+          <name>WDTCONFIG0</name>
           <description>TIMG_WDTCONFIG0_REG.</description>
           <addressOffset>0x48</addressOffset>
           <size>32</size>
@@ -29112,7 +29138,7 @@
           </fields>
         </register>
         <register>
-          <name>WDTCONFIG1_REG</name>
+          <name>WDTCONFIG1</name>
           <description>TIMG_WDTCONFIG1_REG.</description>
           <addressOffset>0x4c</addressOffset>
           <size>32</size>
@@ -29134,7 +29160,7 @@
           </fields>
         </register>
         <register>
-          <name>WDTCONFIG2_REG</name>
+          <name>WDTCONFIG2</name>
           <description>TIMG_WDTCONFIG2_REG.</description>
           <addressOffset>0x50</addressOffset>
           <size>32</size>
@@ -29149,7 +29175,7 @@
           </fields>
         </register>
         <register>
-          <name>WDTCONFIG3_REG</name>
+          <name>WDTCONFIG3</name>
           <description>TIMG_WDTCONFIG3_REG.</description>
           <addressOffset>0x54</addressOffset>
           <size>32</size>
@@ -29164,7 +29190,7 @@
           </fields>
         </register>
         <register>
-          <name>WDTCONFIG4_REG</name>
+          <name>WDTCONFIG4</name>
           <description>TIMG_WDTCONFIG4_REG.</description>
           <addressOffset>0x58</addressOffset>
           <size>32</size>
@@ -29179,7 +29205,7 @@
           </fields>
         </register>
         <register>
-          <name>WDTCONFIG5_REG</name>
+          <name>WDTCONFIG5</name>
           <description>TIMG_WDTCONFIG5_REG.</description>
           <addressOffset>0x5c</addressOffset>
           <size>32</size>
@@ -29194,7 +29220,7 @@
           </fields>
         </register>
         <register>
-          <name>WDTFEED_REG</name>
+          <name>WDTFEED</name>
           <description>TIMG_WDTFEED_REG.</description>
           <addressOffset>0x60</addressOffset>
           <size>32</size>
@@ -29209,7 +29235,7 @@
           </fields>
         </register>
         <register>
-          <name>WDTWPROTECT_REG</name>
+          <name>WDTWPROTECT</name>
           <description>TIMG_WDTWPROTECT_REG.</description>
           <addressOffset>0x64</addressOffset>
           <size>32</size>
@@ -29224,7 +29250,7 @@
           </fields>
         </register>
         <register>
-          <name>RTCCALICFG_REG</name>
+          <name>RTCCALICFG</name>
           <description>TIMG_RTCCALICFG_REG.</description>
           <addressOffset>0x68</addressOffset>
           <size>32</size>
@@ -29264,7 +29290,7 @@
           </fields>
         </register>
         <register>
-          <name>RTCCALICFG1_REG</name>
+          <name>RTCCALICFG1</name>
           <description>TIMG_RTCCALICFG1_REG.</description>
           <addressOffset>0x6c</addressOffset>
           <size>32</size>
@@ -29286,7 +29312,7 @@
           </fields>
         </register>
         <register>
-          <name>INT_ENA_TIMG_REG</name>
+          <name>INT_ENA_TIMG</name>
           <description>INT_ENA_TIMG_REG</description>
           <addressOffset>0x70</addressOffset>
           <size>32</size>
@@ -29306,7 +29332,7 @@
           </fields>
         </register>
         <register>
-          <name>INT_RAW_TIMG_REG</name>
+          <name>INT_RAW_TIMG</name>
           <description>INT_RAW_TIMG_REG</description>
           <addressOffset>0x74</addressOffset>
           <size>32</size>
@@ -29328,7 +29354,7 @@
           </fields>
         </register>
         <register>
-          <name>INT_ST_TIMG_REG</name>
+          <name>INT_ST_TIMG</name>
           <description>INT_ST_TIMG_REG</description>
           <addressOffset>0x78</addressOffset>
           <size>32</size>
@@ -29350,7 +29376,7 @@
           </fields>
         </register>
         <register>
-          <name>INT_CLR_TIMG_REG</name>
+          <name>INT_CLR_TIMG</name>
           <description>INT_CLR_TIMG_REG</description>
           <addressOffset>0x7c</addressOffset>
           <size>32</size>
@@ -29372,7 +29398,7 @@
           </fields>
         </register>
         <register>
-          <name>RTCCALICFG2_REG</name>
+          <name>RTCCALICFG2</name>
           <description>TIMG_RTCCALICFG2_REG.</description>
           <addressOffset>0x80</addressOffset>
           <size>32</size>
@@ -29400,7 +29426,7 @@
           </fields>
         </register>
         <register>
-          <name>NTIMG_DATE_REG</name>
+          <name>NTIMG_DATE</name>
           <description>TIMG_NTIMG_DATE_REG.</description>
           <addressOffset>0xf8</addressOffset>
           <size>32</size>
@@ -29415,7 +29441,7 @@
           </fields>
         </register>
         <register>
-          <name>REGCLK_REG</name>
+          <name>REGCLK</name>
           <description>TIMG_REGCLK_REG.</description>
           <addressOffset>0xfc</addressOffset>
           <size>32</size>
@@ -29443,18 +29469,15 @@
         </register>
       </registers>
     </peripheral>
-    <peripheral derivedFrom="TIMG">
-      <name>TIMG0</name>
-      <baseAddress>0x6001f000</baseAddress>
-    </peripheral>
-    <peripheral derivedFrom="TIMG">
+    <peripheral derivedFrom="TIMG0">
       <name>TIMG1</name>
       <baseAddress>0x60020000</baseAddress>
     </peripheral>
     <peripheral>
-      <name>UART</name>
+      <name>UART0</name>
       <description>Peripheral UART</description>
-      <baseAddress>0x0</baseAddress>
+      <groupName>UART</groupName>
+      <baseAddress>0x60000000</baseAddress>
       <registers>
         <register>
           <name>FIFO</name>
@@ -30926,18 +30949,15 @@
         </register>
       </registers>
     </peripheral>
-    <peripheral derivedFrom="UART">
-      <name>UART0</name>
-      <baseAddress>0x60000000</baseAddress>
-    </peripheral>
-    <peripheral derivedFrom="UART">
+    <peripheral derivedFrom="UART0">
       <name>UART1</name>
       <baseAddress>0x60010000</baseAddress>
     </peripheral>
     <peripheral>
-      <name>UHCI</name>
+      <name>UHCI0</name>
       <description>Peripheral UHCI</description>
-      <baseAddress>0x0</baseAddress>
+      <groupName>UHCI</groupName>
+      <baseAddress>0x60014000</baseAddress>
       <registers>
         <register>
           <name>CONF0</name>
@@ -31896,17 +31916,14 @@
         </register>
       </registers>
     </peripheral>
-    <peripheral derivedFrom="UHCI">
-      <name>UHCI0</name>
-      <baseAddress>0x60014000</baseAddress>
-    </peripheral>
-    <peripheral derivedFrom="UHCI">
+    <peripheral derivedFrom="UHCI0">
       <name>UHCI1</name>
       <baseAddress>0x6000c000</baseAddress>
     </peripheral>
     <peripheral>
       <name>USB_DEVICE</name>
       <description>Peripheral USB_DEVICE</description>
+      <groupName>USB_DEVICE</groupName>
       <baseAddress>0x60043000</baseAddress>
       <registers>
         <register>
@@ -32776,6 +32793,7 @@
     <peripheral>
       <name>XTS_AES</name>
       <description>Peripheral XTS_AES</description>
+      <groupName>XTS_AES</groupName>
       <baseAddress>0x600cc000</baseAddress>
       <registers>
         <register>
