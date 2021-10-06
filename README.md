@@ -2,7 +2,7 @@
 
 This repository contains CMSIS System View Description (CMSIS-SVD) files for Espressif products.
 
-If you discover any errors within any of the SVD files please consider opening an issue to report it.
+Please note that these SVDs are still in-progress and may be missing peripherals, interrupts, and/or registers. If you discover any errors within any of the SVD files please consider opening an issue to report it.
 
 ## What is CMSIS-SVD?
 
