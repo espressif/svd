@@ -4,7 +4,7 @@
   <vendorID>ESPRESSIF</vendorID>
   <name>ESP32-C3</name>
   <series>ESP32-C3</series>
-  <version>1.0</version>
+  <version>2</version>
   <description>32-bit RISC-V MCU &amp; 2.4 GHz Wi-Fi &amp; Bluetooth 5 (LE)</description>
   <licenseText>
     Copyright 2021 Espressif Systems (Shanghai) PTE LTD
@@ -37,9 +37,18 @@
   <peripherals>
     <peripheral>
       <name>AES</name>
-      <description>Peripheral AES</description>
+      <description>Advanced Encryption Standard</description>
       <groupName>AES</groupName>
       <baseAddress>0x6003a000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xbc</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>AES</name>
+        <value>48</value>
+      </interrupt>
       <registers>
         <register>
           <name>KEY_0</name>
@@ -324,28 +333,36 @@
           </fields>
         </register>
         <register>
-          <name>IV_MEM</name>
+          <dim>16</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>IV_MEM[%s]</name>
           <description>The memory that stores initialization vector</description>
           <addressOffset>0x50</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
-          <name>H_MEM</name>
+          <dim>16</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>H_MEM[%s]</name>
           <description>The memory that stores GCM hash subkey</description>
           <addressOffset>0x60</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
-          <name>J0_MEM</name>
+          <dim>16</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>J0_MEM[%s]</name>
           <description>The memory that stores J0</description>
           <addressOffset>0x70</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
-          <name>T0_MEM</name>
+          <dim>16</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>T0_MEM[%s]</name>
           <description>The memory that stores T0</description>
           <addressOffset>0x80</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
           <name>DMA_ENABLE</name>
@@ -509,9 +526,18 @@
     </peripheral>
     <peripheral>
       <name>APB_CTRL</name>
-      <description>Peripheral APB_CTRL</description>
+      <description>Advanced Peripheral Bus Controller</description>
       <groupName>APB_CTRL</groupName>
       <baseAddress>0x60026000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xa0</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>APB_CTRL</name>
+        <value>14</value>
+      </interrupt>
       <registers>
         <register>
           <name>SYSCLK_CONF</name>
@@ -1340,9 +1366,18 @@
     </peripheral>
     <peripheral>
       <name>APB_SARADC</name>
-      <description>Peripheral APB_SARADC</description>
+      <description>Successive Approximation Register Analog to Digital Converter</description>
       <groupName>APB_SARADC</groupName>
       <baseAddress>0x60040000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x68</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>APB_ADC</name>
+        <value>43</value>
+      </interrupt>
       <registers>
         <register>
           <name>CTRL</name>
@@ -2148,6 +2183,15 @@
       <description>Peripheral ASSIST_DEBUG</description>
       <groupName>ASSIST_DEBUG</groupName>
       <baseAddress>0x600ce000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xa0</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>ASSIST_DEBUG</name>
+        <value>54</value>
+      </interrupt>
       <registers>
         <register>
           <name>C0RE_0_MONTR_ENA</name>
@@ -3102,9 +3146,30 @@
     </peripheral>
     <peripheral>
       <name>DMA</name>
-      <description>Peripheral DMA</description>
+      <description>Direct Memory Access</description>
       <groupName>DMA</groupName>
       <baseAddress>0x6003f000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x174</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>DMA_CH0</name>
+        <value>44</value>
+      </interrupt>
+      <interrupt>
+        <name>DMA_CH1</name>
+        <value>45</value>
+      </interrupt>
+      <interrupt>
+        <name>DMA_CH2</name>
+        <value>46</value>
+      </interrupt>
+      <interrupt>
+        <name>DMA_APBPERI_PMS</name>
+        <value>55</value>
+      </interrupt>
       <registers>
         <register>
           <name>INT_RAW_CH0</name>
@@ -6228,45 +6293,62 @@
     </peripheral>
     <peripheral>
       <name>DS</name>
-      <description>Peripheral DS</description>
+      <description>Digital Signature</description>
       <groupName>DS</groupName>
       <baseAddress>0x6003d000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xa4c</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
-          <name>Y_MEM</name>
+          <dim>512</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>Y_MEM[%s]</name>
           <description>memory that stores Y</description>
           <addressOffset>0x0</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
-          <name>M_MEM</name>
+          <dim>512</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>M_MEM[%s]</name>
           <description>memory that stores M</description>
           <addressOffset>0x200</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
-          <name>RB_MEM</name>
+          <dim>512</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>RB_MEM[%s]</name>
           <description>memory that stores Rb</description>
           <addressOffset>0x400</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
-          <name>BOX_MEM</name>
+          <dim>48</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>BOX_MEM[%s]</name>
           <description>memory that stores BOX</description>
           <addressOffset>0x600</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
-          <name>X_MEM</name>
+          <dim>512</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>X_MEM[%s]</name>
           <description>memory that stores X</description>
           <addressOffset>0x800</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
-          <name>Z_MEM</name>
+          <dim>512</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>Z_MEM[%s]</name>
           <description>memory that stores Z</description>
           <addressOffset>0xa00</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
           <name>SET_START</name>
@@ -6387,6 +6469,15 @@
       <description>Peripheral EFUSE</description>
       <groupName>EFUSE</groupName>
       <baseAddress>0x60008800</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x1cc</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>EFUSE</name>
+        <value>24</value>
+      </interrupt>
       <registers>
         <register>
           <name>PGM_DATA0</name>
@@ -9030,6 +9121,11 @@
       <description>Peripheral EXTMEM</description>
       <groupName>EXTMEM</groupName>
       <baseAddress>0x600c4000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x108</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>ICACHE_CTRL</name>
@@ -10411,9 +10507,22 @@
     </peripheral>
     <peripheral>
       <name>GPIO</name>
-      <description>Peripheral GPIO</description>
+      <description>General Purpose Input/Output</description>
       <groupName>GPIO</groupName>
       <baseAddress>0x60004000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x31c</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>GPIO</name>
+        <value>16</value>
+      </interrupt>
+      <interrupt>
+        <name>GPIO_NMI</name>
+        <value>17</value>
+      </interrupt>
       <registers>
         <register>
           <name>BT_SELECT</name>
@@ -10817,9 +10926,14 @@
     </peripheral>
     <peripheral>
       <name>GPIOSD</name>
-      <description>Peripheral GPIOSD</description>
+      <description>Sigma-Delta Modulation</description>
       <groupName>GPIOSD</groupName>
       <baseAddress>0x60004f00</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x1c</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <dim>4</dim>
@@ -10897,9 +11011,14 @@
     </peripheral>
     <peripheral>
       <name>HMAC</name>
-      <description>Peripheral HMAC</description>
+      <description>Hash-based Message Authentication Code</description>
       <groupName>HMAC</groupName>
       <baseAddress>0x6003e000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xa0</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>SET_START</name>
@@ -11082,16 +11201,20 @@
           </fields>
         </register>
         <register>
-          <name>WR_MESSAGE_MEM</name>
+          <dim>64</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>WR_MESSAGE_MEM[%s]</name>
           <description>Message block memory.</description>
           <addressOffset>0x80</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
-          <name>RD_RESULT_MEM</name>
+          <dim>32</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>RD_RESULT_MEM[%s]</name>
           <description>Result from upstream.</description>
           <addressOffset>0xc0</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
           <name>SET_MESSAGE_PAD</name>
@@ -11157,9 +11280,14 @@
     </peripheral>
     <peripheral>
       <name>I2C</name>
-      <description>Peripheral I2C</description>
+      <description>Inter-Integrated Circuit</description>
       <groupName>I2C</groupName>
       <baseAddress>0x60013000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x90</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>SCL_LOW_PERIOD</name>
@@ -12379,9 +12507,14 @@
     </peripheral>
     <peripheral>
       <name>I2S</name>
-      <description>Peripheral I2S</description>
+      <description>Inter-IC Sound</description>
       <groupName>I2S</groupName>
       <baseAddress>0x6002d000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x5c</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>INT_RAW</name>
@@ -13515,6 +13648,27 @@
       <description>Peripheral INTERRUPT_CORE0</description>
       <groupName>INTERRUPT_CORE0</groupName>
       <baseAddress>0x600c2000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x19c</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>CORE0_IRAM0_PMS</name>
+        <value>56</value>
+      </interrupt>
+      <interrupt>
+        <name>CORE0_DRAM0_PMS</name>
+        <value>57</value>
+      </interrupt>
+      <interrupt>
+        <name>CORE0_PIF_PMS</name>
+        <value>58</value>
+      </interrupt>
+      <interrupt>
+        <name>CORE0_PIF_PMS_SIZE</name>
+        <value>59</value>
+      </interrupt>
       <registers>
         <register>
           <name>MAC_INTR_MAP</name>
@@ -14967,9 +15121,14 @@
     </peripheral>
     <peripheral>
       <name>IO_MUX</name>
-      <description>Peripheral IO_MUX</description>
+      <description>Input/Output Multiplexer</description>
       <groupName>IO_MUX</groupName>
       <baseAddress>0x60009000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x60</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>PIN_CTRL</name>
@@ -15094,9 +15253,26 @@
     </peripheral>
     <peripheral>
       <name>LEDC</name>
-      <description>Peripheral LEDC</description>
+      <description>LED Control</description>
       <groupName>LEDC</groupName>
       <baseAddress>0x60019000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xb0</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>LEDC</name>
+        <value>23</value>
+      </interrupt>
+      <interrupt>
+        <name>TIMER1</name>
+        <value>30</value>
+      </interrupt>
+      <interrupt>
+        <name>TIMER2</name>
+        <value>31</value>
+      </interrupt>
       <registers>
         <register>
           <name>LSCH0_CONF0</name>
@@ -16655,9 +16831,18 @@
     </peripheral>
     <peripheral>
       <name>RMT</name>
-      <description>Peripheral RMT</description>
+      <description>Remote Control</description>
       <groupName>RMT</groupName>
       <baseAddress>0x60016000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x78</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>RMT</name>
+        <value>28</value>
+      </interrupt>
       <registers>
         <register>
           <name>CH0DATA</name>
@@ -18097,33 +18282,50 @@
     </peripheral>
     <peripheral>
       <name>RSA</name>
-      <description>Peripheral RSA</description>
+      <description>Rivest–Shamir–Adleman Cryptography</description>
       <groupName>RSA</groupName>
       <baseAddress>0x6003c000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x74</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>RSA</name>
+        <value>47</value>
+      </interrupt>
       <registers>
         <register>
-          <name>M_MEM</name>
+          <dim>16</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>M_MEM[%s]</name>
           <description>The memory that stores M</description>
           <addressOffset>0x0</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
-          <name>Z_MEM</name>
+          <dim>16</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>Z_MEM[%s]</name>
           <description>The memory that stores Z</description>
           <addressOffset>0x200</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
-          <name>Y_MEM</name>
+          <dim>16</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>Y_MEM[%s]</name>
           <description>The memory that stores Y</description>
           <addressOffset>0x400</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
-          <name>X_MEM</name>
+          <dim>16</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>X_MEM[%s]</name>
           <description>The memory that stores X</description>
           <addressOffset>0x600</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
           <name>M_PRIME</name>
@@ -18319,9 +18521,18 @@
     </peripheral>
     <peripheral>
       <name>RTC_CNTL</name>
-      <description>Peripheral RTC_CNTL</description>
+      <description>Real-Time Clock Control</description>
       <groupName>RTC_CNTL</groupName>
       <baseAddress>0x60008000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x12c</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>RTC_CORE</name>
+        <value>27</value>
+      </interrupt>
       <registers>
         <register>
           <name>RTC_OPTIONS0</name>
@@ -21500,6 +21711,11 @@
       <description>Peripheral SENSITIVE</description>
       <groupName>SENSITIVE</groupName>
       <baseAddress>0x600c1000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x178</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>ROM_TABLE_LOCK</name>
@@ -24731,9 +24947,18 @@
     </peripheral>
     <peripheral>
       <name>SHA</name>
-      <description>Peripheral SHA</description>
+      <description>Secure Hash Algorithm</description>
       <groupName>SHA</groupName>
       <baseAddress>0x6003b000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xb0</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>SHA</name>
+        <value>49</value>
+      </interrupt>
       <registers>
         <register>
           <name>MODE</name>
@@ -24911,24 +25136,33 @@
           </fields>
         </register>
         <register>
-          <name>H_MEM</name>
+          <dim>64</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>H_MEM[%s]</name>
           <description>Sha H memory which contains intermediate hash or finial hash.</description>
           <addressOffset>0x40</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
-          <name>M_MEM</name>
+          <dim>64</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>M_MEM[%s]</name>
           <description>Sha M memory which contains message.</description>
           <addressOffset>0x80</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
       </registers>
     </peripheral>
     <peripheral>
       <name>SPI0</name>
-      <description>Peripheral SPI0</description>
+      <description>Serial Peripheral Interface 0</description>
       <groupName>SPI0</groupName>
       <baseAddress>0x60003000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x48</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>CTRL</name>
@@ -25495,9 +25729,14 @@
     </peripheral>
     <peripheral>
       <name>SPI1</name>
-      <description>Peripheral SPI1</description>
+      <description>Serial Peripheral Interface 1</description>
       <groupName>SPI1</groupName>
       <baseAddress>0x60002000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xa8</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>CMD</name>
@@ -26734,9 +26973,14 @@
     </peripheral>
     <peripheral>
       <name>SPI2</name>
-      <description>Peripheral SPI2</description>
+      <description>Serial Peripheral Interface 2</description>
       <groupName>SPI2</groupName>
       <baseAddress>0x60024000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x94</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>CMD</name>
@@ -28350,6 +28594,11 @@
       <description>Peripheral SYSTEM</description>
       <groupName>SYSTEM</groupName>
       <baseAddress>0x600c0000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xa0</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>CPU_PERI_CLK_EN</name>
@@ -29661,6 +29910,23 @@
       <description>Peripheral SYSTIMER</description>
       <groupName>SYSTIMER</groupName>
       <baseAddress>0x60023000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x78</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>SYSTIMER_TARGET0_EDGE</name>
+        <value>37</value>
+      </interrupt>
+      <interrupt>
+        <name>SYSTIMER_TARGET1_EDGE</name>
+        <value>38</value>
+      </interrupt>
+      <interrupt>
+        <name>SYSTIMER_TARGET2_EDGE</name>
+        <value>39</value>
+      </interrupt>
       <registers>
         <register>
           <name>CONF</name>
@@ -30266,9 +30532,22 @@
     </peripheral>
     <peripheral>
       <name>TIMG0</name>
-      <description>Peripheral TIMG</description>
+      <description>General Purpose Timer 0</description>
       <groupName>TIMG</groupName>
       <baseAddress>0x6001f000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x68</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>TG0_T0_LEVEL</name>
+        <value>32</value>
+      </interrupt>
+      <interrupt>
+        <name>TG0_WDT_LEVEL</name>
+        <value>33</value>
+      </interrupt>
       <registers>
         <register>
           <name>T0CONFIG</name>
@@ -30856,12 +31135,30 @@
     <peripheral derivedFrom="TIMG0">
       <name>TIMG1</name>
       <baseAddress>0x60020000</baseAddress>
+      <description>General Purpose Timer 1</description>
+      <interrupt>
+        <name>TG1_T0_LEVEL</name>
+        <value>34</value>
+      </interrupt>
+      <interrupt>
+        <name>TG1_WDT_LEVEL</name>
+        <value>35</value>
+      </interrupt>
     </peripheral>
     <peripheral>
       <name>UART0</name>
-      <description>Peripheral UART</description>
+      <description>Universal Asynchronous Receiver-Transmitter 0</description>
       <groupName>UART</groupName>
       <baseAddress>0x60000000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x84</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>UART0</name>
+        <value>21</value>
+      </interrupt>
       <registers>
         <register>
           <name>FIFO</name>
@@ -32336,12 +32633,26 @@
     <peripheral derivedFrom="UART0">
       <name>UART1</name>
       <baseAddress>0x60010000</baseAddress>
+      <description>Universal Asynchronous Receiver-Transmitter 1</description>
+      <interrupt>
+        <name>UART1</name>
+        <value>22</value>
+      </interrupt>
     </peripheral>
     <peripheral>
       <name>UHCI0</name>
-      <description>Peripheral UHCI</description>
+      <description>Universal Host Controller Interface 0</description>
       <groupName>UHCI</groupName>
       <baseAddress>0x60014000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x84</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>UHCI0</name>
+        <value>15</value>
+      </interrupt>
       <registers>
         <register>
           <name>CONF0</name>
@@ -33303,12 +33614,18 @@
     <peripheral derivedFrom="UHCI0">
       <name>UHCI1</name>
       <baseAddress>0x6000c000</baseAddress>
+      <description>Universal Host Controller Interface 1</description>
     </peripheral>
     <peripheral>
       <name>USB_DEVICE</name>
       <description>Peripheral USB_DEVICE</description>
       <groupName>USB_DEVICE</groupName>
       <baseAddress>0x60043000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x50</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>EP1</name>
@@ -34179,12 +34496,19 @@
       <description>Peripheral XTS_AES</description>
       <groupName>XTS_AES</groupName>
       <baseAddress>0x600cc000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x30</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
-          <name>PLAIN_MEM</name>
+          <dim>16</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>PLAIN_MEM[%s]</name>
           <description>The memory that stores plaintext</description>
           <addressOffset>0x0</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
           <name>LINESIZE</name>

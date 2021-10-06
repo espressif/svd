@@ -4,7 +4,7 @@
   <vendorID>ESPRESSIF</vendorID>
   <name>ESP32-S2</name>
   <series>ESP32-S2</series>
-  <version>1.0</version>
+  <version>2</version>
   <description>32-bit MCU &amp; 2.4 GHz Wi-Fi</description>
   <licenseText>
     Copyright 2021 Espressif Systems (Shanghai) PTE LTD
@@ -37,9 +37,18 @@
   <peripherals>
     <peripheral>
       <name>AES</name>
-      <description>Peripheral AES</description>
+      <description>Advanced Encryption Standard</description>
       <groupName>AES</groupName>
       <baseAddress>0x6003a000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xbc</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>AES</name>
+        <value>56</value>
+      </interrupt>
       <registers>
         <register>
           <dim>8</dim>
@@ -401,9 +410,18 @@ For DMA-AES; 0 = idle; 1 = busy; 2 = calculation_done.</description>
     </peripheral>
     <peripheral>
       <name>APB_SARADC</name>
-      <description>Peripheral APB_SARADC</description>
+      <description>Successive Approximation Register Analog to Digital Converter</description>
       <groupName>APB_SARADC</groupName>
       <baseAddress>0x3f440000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x68</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>APB_ADC</name>
+        <value>89</value>
+      </interrupt>
       <registers>
         <register>
           <name>CTRL</name>
@@ -1189,6 +1207,11 @@ alternate-channel scan mode.</description>
       <description>Peripheral DEDICATED_GPIO</description>
       <groupName>DEDIC_GPIO</groupName>
       <baseAddress>0x3f4cf000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x30</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>OUT_DRT</name>
@@ -1789,15 +1812,22 @@ alternate-channel scan mode.</description>
     </peripheral>
     <peripheral>
       <name>DS</name>
-      <description>Peripheral DS</description>
+      <description>Digital Signature</description>
       <groupName>DS</groupName>
       <baseAddress>0x6003d000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xa5c</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
-          <name>C_MEM</name>
+          <dim>1584</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>C_MEM[%s]</name>
           <description>memory C</description>
           <addressOffset>0x0</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
           <dim>4</dim>
@@ -1817,16 +1847,20 @@ alternate-channel scan mode.</description>
           </fields>
         </register>
         <register>
-          <name>X_MEM</name>
+          <dim>512</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>X_MEM[%s]</name>
           <description>memory X</description>
           <addressOffset>0x800</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
-          <name>Z_MEM</name>
+          <dim>512</dim>
+          <dimIncrement>0x1</dimIncrement>
+          <name>Z_MEM[%s]</name>
           <description>memory Z</description>
           <addressOffset>0xa00</addressOffset>
-          <size>32</size>
+          <size>8</size>
         </register>
         <register>
           <name>SET_START</name>
@@ -1947,6 +1981,15 @@ alternate-channel scan mode.</description>
       <description>Peripheral EFUSE</description>
       <groupName>EFUSE</groupName>
       <baseAddress>0x3f41a000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x1d0</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>EFUSE</name>
+        <value>46</value>
+      </interrupt>
       <registers>
         <register>
           <dim>8</dim>
@@ -3719,9 +3762,30 @@ alternate-channel scan mode.</description>
     </peripheral>
     <peripheral>
       <name>GPIO</name>
-      <description>Peripheral GPIO</description>
+      <description>General Purpose Input/Output</description>
       <groupName>GPIO</groupName>
       <baseAddress>0x3f404000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x634</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>GPIO</name>
+        <value>23</value>
+      </interrupt>
+      <interrupt>
+        <name>GPIO_NMI</name>
+        <value>24</value>
+      </interrupt>
+      <interrupt>
+        <name>GPIO_INTR_2</name>
+        <value>25</value>
+      </interrupt>
+      <interrupt>
+        <name>GPIO_NMI_2</name>
+        <value>26</value>
+      </interrupt>
       <registers>
         <register>
           <name>BT_SELECT</name>
@@ -4329,9 +4393,14 @@ alternate-channel scan mode.</description>
     </peripheral>
     <peripheral>
       <name>GPIO_SD</name>
-      <description>Peripheral GPIO_SD</description>
+      <description>Sigma-Delta Modulation</description>
       <groupName>GPIOSD</groupName>
       <baseAddress>0x3f404f00</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x2c</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <dim>8</dim>
@@ -4409,9 +4478,14 @@ alternate-channel scan mode.</description>
     </peripheral>
     <peripheral>
       <name>HMAC</name>
-      <description>Peripheral HMAC</description>
+      <description>Hash-based Message Authentication Code</description>
       <groupName>HMAC</groupName>
       <baseAddress>0x6003e000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x9c</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>SET_START</name>
@@ -4688,9 +4762,18 @@ alternate-channel scan mode.</description>
     </peripheral>
     <peripheral>
       <name>I2C0</name>
-      <description>Peripheral I2C</description>
+      <description>Inter-Integrated Circuit 0</description>
       <groupName>I2C</groupName>
       <baseAddress>0x3f413000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xa8</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>I2C_EXT0</name>
+        <value>52</value>
+      </interrupt>
       <registers>
         <register>
           <name>SCL_LOW_PERIOD</name>
@@ -6301,12 +6384,22 @@ Information.</description>
     <peripheral derivedFrom="I2C0">
       <name>I2C1</name>
       <baseAddress>0x3f427000</baseAddress>
+      <description>Inter-Integrated Circuit 1</description>
+      <interrupt>
+        <name>I2C_EXT1</name>
+        <value>53</value>
+      </interrupt>
     </peripheral>
     <peripheral>
       <name>I2S</name>
-      <description>Peripheral I2S</description>
+      <description>Inter-IC Sound</description>
       <groupName>I2S</groupName>
       <baseAddress>0x3f40f000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x88</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>CONF</name>
@@ -7999,6 +8092,11 @@ Information.</description>
       <description>Peripheral INTERRUPT</description>
       <groupName>INTERRUPT</groupName>
       <baseAddress>0x3f4c2000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x190</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>PRO_MAC_INTR_MAP</name>
@@ -9510,9 +9608,14 @@ Information.</description>
     </peripheral>
     <peripheral>
       <name>IO_MUX</name>
-      <description>Peripheral IO_MUX</description>
+      <description>Input/Output Multiplexer</description>
       <groupName>IO_MUX</groupName>
       <baseAddress>0x3f409000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xb4</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>PIN_CTRL</name>
@@ -12797,9 +12900,26 @@ Information.</description>
     </peripheral>
     <peripheral>
       <name>LEDC</name>
-      <description>Peripheral LEDC</description>
+      <description>LED Controller</description>
       <groupName>LEDC</groupName>
       <baseAddress>0x3f419000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xd8</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>LEDC</name>
+        <value>45</value>
+      </interrupt>
+      <interrupt>
+        <name>TIMER1</name>
+        <value>60</value>
+      </interrupt>
+      <interrupt>
+        <name>TIMER2</name>
+        <value>61</value>
+      </interrupt>
       <registers>
         <register>
           <dim>8</dim>
@@ -13648,9 +13768,18 @@ The least significant eight bits represent the fractional part.</description>
     </peripheral>
     <peripheral>
       <name>PCNT</name>
-      <description>Peripheral PCNT</description>
+      <description>Pulse Counter</description>
       <groupName>PCNT</groupName>
       <baseAddress>0x3f417000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x68</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>PCNT</name>
+        <value>51</value>
+      </interrupt>
       <registers>
         <register>
           <dim>4</dim>
@@ -14106,9 +14235,18 @@ Any pulses with width less than this will be ignored when the filter is enabled.
     </peripheral>
     <peripheral>
       <name>RMT</name>
-      <description>Peripheral RMT</description>
+      <description>Remote Control</description>
       <groupName>RMT</groupName>
       <baseAddress>0x3f416000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xa0</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>RMT</name>
+        <value>50</value>
+      </interrupt>
       <registers>
         <register>
           <dim>4</dim>
@@ -15162,6 +15300,15 @@ Any pulses with width less than this will be ignored when the filter is enabled.
       <description>Peripheral RSA</description>
       <groupName>RSA</groupName>
       <baseAddress>0x6003c000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x34</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>RSA</name>
+        <value>54</value>
+      </interrupt>
       <registers>
         <register>
           <name>M_PRIME</name>
@@ -15360,6 +15507,11 @@ Any pulses with width less than this will be ignored when the filter is enabled.
       <description>Peripheral RTCIO</description>
       <groupName>RTCIO</groupName>
       <baseAddress>0x3f408400</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xf0</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>RTC_GPIO_OUT</name>
@@ -16243,6 +16395,15 @@ Any pulses with width less than this will be ignored when the filter is enabled.
       <description>Peripheral RTC_CNTL</description>
       <groupName>RTC_CNTL</groupName>
       <baseAddress>0x3f408000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x138</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>RTC_CORE</name>
+        <value>49</value>
+      </interrupt>
       <registers>
         <register>
           <name>OPTIONS0</name>
@@ -20100,10 +20261,970 @@ proximity mode. Range: 0 – 255.</description>
       </registers>
     </peripheral>
     <peripheral>
+      <name>RTC_I2C</name>
+      <description>Peripheral RTC_I2C</description>
+      <groupName>RTC_I2C</groupName>
+      <baseAddress>0x3f408c00</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x7c</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <registers>
+        <register>
+          <name>SCL_LOW</name>
+          <description>Configure the low level width of SCL</description>
+          <addressOffset>0x0</addressOffset>
+          <size>32</size>
+          <resetValue>0x100</resetValue>
+          <fields>
+            <field>
+              <name>PERIOD</name>
+              <description>This register is used to configure how many clock cycles SCL
+remains low.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>20</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CTRL</name>
+          <description>Transmission setting</description>
+          <addressOffset>0x4</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>SDA_FORCE_OUT</name>
+              <description>SDA output mode. 0: open drain. 1: push pull.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>SCL_FORCE_OUT</name>
+              <description>SCL output mode. 0: open drain. 1: push pull.</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>MS_MODE</name>
+              <description>Set this bit to configure RTC I²C as a master.</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>TRANS_START</name>
+              <description>Set this bit to 1, RTC I2C starts sending data.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>TX_LSB_FIRST</name>
+              <description>This bit is used to control the sending mode. 0: send data from the most
+significant bit. 1: send data from the least significant bit.</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>RX_LSB_FIRST</name>
+              <description>This bit is used to control the storage mode for received data. 0: receive
+data from the most significant bit. 1: receive data from the least significant bit.</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>CLK_GATE_EN</name>
+              <description>RTC I²C controller clock gate.</description>
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>RESET</name>
+              <description>RTC I²C software reset.</description>
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>CLK_EN</name>
+              <description>rtc i2c reg clk gating</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>STATUS</name>
+          <description>RTC I2C status</description>
+          <addressOffset>0x8</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>ACK_REC</name>
+              <description>The received ACK value. 0: ACK. 1: NACK.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>SLAVE_RW</name>
+              <description>0: master writes to slave. 1: master reads from slave.</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>ARB_LOST</name>
+              <description>When the RTC I2C loses control of SCL line, the register changes to 1.</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>BUS_BUSY</name>
+              <description>0: RTC I2C bus is in idle state. 1: RTC I2C bus is busy transferring data.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>SLAVE_ADDRESSED</name>
+              <description>When the address sent by the master matches the address of the
+slave, then this bit will be set.</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>BYTE_TRANS</name>
+              <description>This field changes to 1 when one byte is transferred.</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>OP_CNT</name>
+              <description>Indicate which operation is working.</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>SHIFT</name>
+              <description>shifter content</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>SCL_MAIN_STATE_LAST</name>
+              <description>i2c last main status</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>3</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>SCL_STATE_LAST</name>
+              <description>scl last status</description>
+              <bitOffset>28</bitOffset>
+              <bitWidth>3</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TO</name>
+          <description>Configure RTC I2C timeout</description>
+          <addressOffset>0xc</addressOffset>
+          <size>32</size>
+          <resetValue>0x10000</resetValue>
+          <fields>
+            <field>
+              <name>TIME_OUT</name>
+              <description>Timeout threshold</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>20</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>SLAVE_ADDR</name>
+          <description>Configure slave address</description>
+          <addressOffset>0x10</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>SLAVE_ADDR</name>
+              <description>slave address</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>15</bitWidth>
+            </field>
+            <field>
+              <name>ADDR_10BIT_EN</name>
+              <description>This field is used to enable the slave 10-bit addressing mode.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>SCL_HIGH</name>
+          <description>Configure the high level width of SCL</description>
+          <addressOffset>0x14</addressOffset>
+          <size>32</size>
+          <resetValue>0x100</resetValue>
+          <fields>
+            <field>
+              <name>PERIOD</name>
+              <description>This register is used to configure how many cycles SCL remains high.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>20</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>SDA_DUTY</name>
+          <description>Configure the SDA hold time after a negative
+SCL edge</description>
+          <addressOffset>0x18</addressOffset>
+          <size>32</size>
+          <resetValue>0x10</resetValue>
+          <fields>
+            <field>
+              <name>NUM</name>
+              <description>The number of clock cycles between the SDA switch and the falling
+edge of SCL.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>20</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>SCL_START_PERIOD</name>
+          <description>Configure the delay between the SDA and SCL
+negative edge for a start condition</description>
+          <addressOffset>0x1c</addressOffset>
+          <size>32</size>
+          <resetValue>0x8</resetValue>
+          <fields>
+            <field>
+              <name>SCL_START_PERIOD</name>
+              <description>Number of clock cycles to wait after generating a start condition.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>20</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>SCL_STOP_PERIOD</name>
+          <description>Configure the delay between SDA and SCL positive edge for a stop condition</description>
+          <addressOffset>0x20</addressOffset>
+          <size>32</size>
+          <resetValue>0x8</resetValue>
+          <fields>
+            <field>
+              <name>SCL_STOP_PERIOD</name>
+              <description>Number of clock cycles to wait before generating a stop condition.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>20</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>INT_CLR</name>
+          <description>Clear RTC I2C interrupt</description>
+          <addressOffset>0x24</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>SLAVE_TRAN_COMP_INT_CLR</name>
+              <description>RTC_I2C_SLAVE_TRAN_COMP_INT interrupt clear bit</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>ARBITRATION_LOST_INT_CLR</name>
+              <description>RTC_I2C_ARBITRATION_LOST_INT interrupt clear bit</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>MASTER_TRAN_COMP_INT_CLR</name>
+              <description>RTC_I2C_MASTER_TRAN_COMP_INT interrupt
+clear bit</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>TRANS_COMPLETE_INT_CLR</name>
+              <description>RTC_I2C_TRANS_COMPLETE_INT interrupt clear bit</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>TIME_OUT_INT_CLR</name>
+              <description>RTC_I2C_TIME_OUT_INT interrupt clear bit</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>ACK_ERR_INT_CLR</name>
+              <description>RTC_I2C_ACK_ERR_INT interrupt clear bit</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>RX_DATA_INT_CLR</name>
+              <description>RTC_I2C_RX_DATA_INT interrupt clear bit</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>TX_DATA_INT_CLR</name>
+              <description>RTC_I2C_TX_DATA_INT interrupt clear bit</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>DETECT_START_INT_CLR</name>
+              <description>RTC_I2C_DETECT_START_INT interrupt clear bit</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>INT_RAW</name>
+          <description>RTC I2C raw interrupt</description>
+          <addressOffset>0x28</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>SLAVE_TRAN_COMP_INT_RAW</name>
+              <description>RTC_I2C_SLAVE_TRAN_COMP_INT interrupt raw bit</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>ARBITRATION_LOST_INT_RAW</name>
+              <description>RTC_I2C_ARBITRATION_LOST_INT interrupt raw bit</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>MASTER_TRAN_COMP_INT_RAW</name>
+              <description>RTC_I2C_MASTER_TRAN_COMP_INT interrupt raw bit</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>TRANS_COMPLETE_INT_RAW</name>
+              <description>RTC_I2C_TRANS_COMPLETE_INT interrupt raw bit</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>TIME_OUT_INT_RAW</name>
+              <description>RTC_I2C_TIME_OUT_INT interrupt raw bit</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>ACK_ERR_INT_RAW</name>
+              <description>RTC_I2C_ACK_ERR_INT interrupt raw bit</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>RX_DATA_INT_RAW</name>
+              <description>RTC_I2C_RX_DATA_INT interrupt raw bit</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>TX_DATA_INT_RAW</name>
+              <description>RTC_I2C_TX_DATA_INT interrupt raw bit</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>DETECT_START_INT_RAW</name>
+              <description>RTC_I2C_DETECT_START_INT interrupt raw bit</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>INT_ST</name>
+          <description>RTC I2C interrupt status</description>
+          <addressOffset>0x2c</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>SLAVE_TRAN_COMP_INT_ST</name>
+              <description>RTC_I2C_SLAVE_TRAN_COMP_INT interrupt status bit</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>ARBITRATION_LOST_INT_ST</name>
+              <description>RTC_I2C_ARBITRATION_LOST_INT interrupt status bit</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>MASTER_TRAN_COMP_INT_ST</name>
+              <description>RTC_I2C_MASTER_TRAN_COMP_INT interrupt status bit</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>TRANS_COMPLETE_INT_ST</name>
+              <description>RTC_I2C_TRANS_COMPLETE_INT interrupt status bit</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>TIME_OUT_INT_ST</name>
+              <description>RTC_I2C_TIME_OUT_INT interrupt status bit</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>ACK_ERR_INT_ST</name>
+              <description>RTC_I2C_ACK_ERR_INT interrupt status bit</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>RX_DATA_INT_ST</name>
+              <description>RTC_I2C_RX_DATA_INT interrupt status bit</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>TX_DATA_INT_ST</name>
+              <description>RTC_I2C_TX_DATA_INT interrupt status bit</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>DETECT_START_INT_ST</name>
+              <description>RTC_I2C_DETECT_START_INT interrupt status bit</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>INT_ENA</name>
+          <description>Enable RTC I2C interrupt</description>
+          <addressOffset>0x30</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>SLAVE_TRAN_COMP_INT_ENA</name>
+              <description>RTC_I2C_SLAVE_TRAN_COMP_INT interrupt enable bit</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>ARBITRATION_LOST_INT_ENA</name>
+              <description>RTC_I2C_ARBITRATION_LOST_INT interrupt enable bit</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>MASTER_TRAN_COMP_INT_ENA</name>
+              <description>RTC_I2C_MASTER_TRAN_COMP_INT interrupt enable bit</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>TRANS_COMPLETE_INT_ENA</name>
+              <description>RTC_I2C_TRANS_COMPLETE_INT interrupt enable bit</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>TIME_OUT_INT_ENA</name>
+              <description>RTC_I2C_TIME_OUT_INT interrupt enable bit</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>ACK_ERR_INT_ENA</name>
+              <description>RTC_I2C_ACK_ERR_INT interrupt enable bit</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>RX_DATA_INT_ENA</name>
+              <description>RTC_I2C_RX_DATA_INT interrupt enable bit</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>TX_DATA_INT_ENA</name>
+              <description>RTC_I2C_TX_DATA_INT interrupt enable bit</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>DETECT_START_INT_ENA</name>
+              <description>RTC_I2C_DETECT_START_INT interrupt enable bit</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DATA</name>
+          <description>RTC I2C read data</description>
+          <addressOffset>0x34</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>RDATA</name>
+              <description>Data received</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>SLAVE_TX_DATA</name>
+              <description>The data sent by slave</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>8</bitWidth>
+            </field>
+            <field>
+              <name>DONE</name>
+              <description>RTC I2C transmission is done.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CMD0</name>
+          <description>RTC I2C Command 0</description>
+          <addressOffset>0x38</addressOffset>
+          <size>32</size>
+          <resetValue>0x903</resetValue>
+          <fields>
+            <field>
+              <name>COMMAND0</name>
+              <description>Content of command 0. For more information, please refer to the register
+I2C_COMD0_REG in Chapter I²C Controller</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>14</bitWidth>
+            </field>
+            <field>
+              <name>COMMAND0_DONE</name>
+              <description>When command 0 is done, this bit changes to 1.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CMD1</name>
+          <description>RTC I2C Command 1</description>
+          <addressOffset>0x3c</addressOffset>
+          <size>32</size>
+          <resetValue>0x1901</resetValue>
+          <fields>
+            <field>
+              <name>COMMAND1</name>
+              <description>Content of command 1. For more information, please refer to the register
+I2C_COMD1_REG in Chapter I²C Controller.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>14</bitWidth>
+            </field>
+            <field>
+              <name>COMMAND1_DONE</name>
+              <description>When command 1 is done, this bit changes to 1.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CMD2</name>
+          <description>RTC I2C Command 2</description>
+          <addressOffset>0x40</addressOffset>
+          <size>32</size>
+          <resetValue>0x902</resetValue>
+          <fields>
+            <field>
+              <name>COMMAND2</name>
+              <description>Content of command 2. For more information, please refer to the register
+I2C_COMD2_REG in Chapter I²C Controller.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>14</bitWidth>
+            </field>
+            <field>
+              <name>COMMAND2_DONE</name>
+              <description>When command 2 is done, this bit changes to 1.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CMD3</name>
+          <description>RTC I2C Command 3</description>
+          <addressOffset>0x44</addressOffset>
+          <size>32</size>
+          <resetValue>0x101</resetValue>
+          <fields>
+            <field>
+              <name>COMMAND3</name>
+              <description>Content of command 3. For more information, please refer to the register
+I2C_COMD3_REG in Chapter I²C Controller.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>14</bitWidth>
+            </field>
+            <field>
+              <name>COMMAND3_DONE</name>
+              <description>When command 3 is done, this bit changes to 1.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CMD4</name>
+          <description>RTC I2C Command 4</description>
+          <addressOffset>0x48</addressOffset>
+          <size>32</size>
+          <resetValue>0x901</resetValue>
+          <fields>
+            <field>
+              <name>COMMAND4</name>
+              <description>Content of command 4. For more information, please refer to the register
+I2C_COMD4_REG in Chapter I²C Controller.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>14</bitWidth>
+            </field>
+            <field>
+              <name>COMMAND4_DONE</name>
+              <description>When command 4 is done, this bit changes to 1.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CMD5</name>
+          <description>RTC I2C Command 5</description>
+          <addressOffset>0x4c</addressOffset>
+          <size>32</size>
+          <resetValue>0x1701</resetValue>
+          <fields>
+            <field>
+              <name>COMMAND5</name>
+              <description>Content of command 5. For more information, please refer to the register
+I2C_COMD5_REG in Chapter I²C Controller.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>14</bitWidth>
+            </field>
+            <field>
+              <name>COMMAND5_DONE</name>
+              <description>When command 5 is done, this bit changes to 1.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CMD6</name>
+          <description>RTC I2C Command 6</description>
+          <addressOffset>0x50</addressOffset>
+          <size>32</size>
+          <resetValue>0x1901</resetValue>
+          <fields>
+            <field>
+              <name>COMMAND6</name>
+              <description>Content of command 6. For more information, please refer to the register
+I2C_COMD6_REG in Chapter I²C Controller.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>14</bitWidth>
+            </field>
+            <field>
+              <name>COMMAND6_DONE</name>
+              <description>When command 6 is done, this bit changes to 1.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CMD7</name>
+          <description>RTC I2C Command 7</description>
+          <addressOffset>0x54</addressOffset>
+          <size>32</size>
+          <resetValue>0x904</resetValue>
+          <fields>
+            <field>
+              <name>COMMAND7</name>
+              <description>Content of command 7. For more information, please refer to the register
+I2C_COMD7_REG in Chapter I²C Controller.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>14</bitWidth>
+            </field>
+            <field>
+              <name>COMMAND7_DONE</name>
+              <description>When command 7 is done, this bit changes to 1.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CMD8</name>
+          <description>RTC I2C Command 8</description>
+          <addressOffset>0x58</addressOffset>
+          <size>32</size>
+          <resetValue>0x1901</resetValue>
+          <fields>
+            <field>
+              <name>COMMAND8</name>
+              <description>Content of command 8. For more information, please refer to the register
+I2C_COMD8_REG in Chapter I²C Controller.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>14</bitWidth>
+            </field>
+            <field>
+              <name>COMMAND8_DONE</name>
+              <description>When command 8 is done, this bit changes to 1.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CMD9</name>
+          <description>RTC I2C Command 9</description>
+          <addressOffset>0x5c</addressOffset>
+          <size>32</size>
+          <resetValue>0x903</resetValue>
+          <fields>
+            <field>
+              <name>COMMAND9</name>
+              <description>Content of command 9. For more information, please refer to the register
+I2C_COMD9_REG in Chapter I²C Controller</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>14</bitWidth>
+            </field>
+            <field>
+              <name>COMMAND9_DONE</name>
+              <description>When command 9 is done, this bit changes to 1.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CMD10</name>
+          <description>RTC I2C Command 10</description>
+          <addressOffset>0x60</addressOffset>
+          <size>32</size>
+          <resetValue>0x101</resetValue>
+          <fields>
+            <field>
+              <name>COMMAND10</name>
+              <description>Content of command 10. For more information, please refer to the register
+I2C_COMD10_REG in Chapter I²C Controller.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>14</bitWidth>
+            </field>
+            <field>
+              <name>COMMAND10_DONE</name>
+              <description>When command 10 is done, this bit changes to 1.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CMD11</name>
+          <description>RTC I2C Command 11</description>
+          <addressOffset>0x64</addressOffset>
+          <size>32</size>
+          <resetValue>0x901</resetValue>
+          <fields>
+            <field>
+              <name>COMMAND11</name>
+              <description>Content of command 11. For more information, please refer to the register
+I2C_COMD11_REG in Chapter I²C Controller.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>14</bitWidth>
+            </field>
+            <field>
+              <name>COMMAND11_DONE</name>
+              <description>When command 11 is done, this bit changes to 1.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CMD12</name>
+          <description>RTC I2C Command 12</description>
+          <addressOffset>0x68</addressOffset>
+          <size>32</size>
+          <resetValue>0x1701</resetValue>
+          <fields>
+            <field>
+              <name>COMMAND12</name>
+              <description>Content of command 12. For more information, please refer to the register
+I2C_COMD12_REG in Chapter I²C Controller.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>14</bitWidth>
+            </field>
+            <field>
+              <name>COMMAND12_DONE</name>
+              <description>When command 12 is done, this bit changes to 1.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CMD13</name>
+          <description>RTC I2C Command 13</description>
+          <addressOffset>0x6c</addressOffset>
+          <size>32</size>
+          <resetValue>0x1901</resetValue>
+          <fields>
+            <field>
+              <name>COMMAND13</name>
+              <description>Content of command 13. For more information, please refer to the register
+I2C_COMD13_REG in Chapter I²C Controller.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>14</bitWidth>
+            </field>
+            <field>
+              <name>COMMAND13_DONE</name>
+              <description>When command 13 is done, this bit changes to 1.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CMD14</name>
+          <description>RTC I2C Command 14</description>
+          <addressOffset>0x70</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>COMMAND14</name>
+              <description>Content of command 14. For more information, please refer to the register
+I2C_COMD14_REG in Chapter I²C Controller.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>14</bitWidth>
+            </field>
+            <field>
+              <name>COMMAND14_DONE</name>
+              <description>When command 14 is done, this bit changes to 1.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CMD15</name>
+          <description>RTC I2C Command 15</description>
+          <addressOffset>0x74</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>COMMAND15</name>
+              <description>Content of command 15. For more information, please refer to the register
+I2C_COMD15_REG in Chapter I²C Controller.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>14</bitWidth>
+            </field>
+            <field>
+              <name>COMMAND15_DONE</name>
+              <description>When command 15 is done, this bit changes to 1.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DATE</name>
+          <description>Version control register</description>
+          <addressOffset>0xfc</addressOffset>
+          <size>32</size>
+          <resetValue>0x1905310</resetValue>
+          <fields>
+            <field>
+              <name>DATE</name>
+              <description>Version control register</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>28</bitWidth>
+            </field>
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
       <name>SENS</name>
       <description>Peripheral SENS</description>
       <groupName>SENS</groupName>
       <baseAddress>0x3f408800</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x110</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>SAR_READER1_CTRL</name>
@@ -22084,9 +23205,18 @@ proximity mode. Range: 0 – 255.</description>
     </peripheral>
     <peripheral>
       <name>SHA</name>
-      <description>Peripheral SHA</description>
+      <description>Secure Hash Algorithm</description>
       <groupName>SHA</groupName>
       <baseAddress>0x6003b000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xf0</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>SHA</name>
+        <value>55</value>
+      </interrupt>
       <registers>
         <register>
           <name>MODE</name>
@@ -22304,6 +23434,11 @@ proximity mode. Range: 0 – 255.</description>
       <description>Peripheral SYSTEM</description>
       <groupName>SYSTEM</groupName>
       <baseAddress>0x3f4c0000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x94</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <name>ROM_CTRL_0</name>
@@ -23425,6 +24560,23 @@ proximity mode. Range: 0 – 255.</description>
       <description>Peripheral SYSTIMER</description>
       <groupName>SYSTIMER</groupName>
       <baseAddress>0x3f423000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x54</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>SYSTIMER_TARGET0</name>
+        <value>71</value>
+      </interrupt>
+      <interrupt>
+        <name>SYSTIMER_TARGET1</name>
+        <value>72</value>
+      </interrupt>
+      <interrupt>
+        <name>SYSTIMER_TARGET2</name>
+        <value>73</value>
+      </interrupt>
       <registers>
         <register>
           <name>CONF</name>
@@ -23832,9 +24984,46 @@ ready to read timer value from registers; 1: Ready to read timer value from regi
     </peripheral>
     <peripheral>
       <name>TIMG0</name>
-      <description>Peripheral TIMG</description>
+      <description>General Purpose Timer 0</description>
       <groupName>TIMG</groupName>
       <baseAddress>0x3f41f000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xb4</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>TG0_T0_LEVEL</name>
+        <value>15</value>
+      </interrupt>
+      <interrupt>
+        <name>TG0_T1_LEVEL</name>
+        <value>16</value>
+      </interrupt>
+      <interrupt>
+        <name>TG0_WDT_LEVEL</name>
+        <value>17</value>
+      </interrupt>
+      <interrupt>
+        <name>TG0_LACT_LEVEL</name>
+        <value>18</value>
+      </interrupt>
+      <interrupt>
+        <name>TG0_T0_EDGE</name>
+        <value>62</value>
+      </interrupt>
+      <interrupt>
+        <name>TG0_T1_EDGE</name>
+        <value>63</value>
+      </interrupt>
+      <interrupt>
+        <name>TG0_WDT_EDGE</name>
+        <value>64</value>
+      </interrupt>
+      <interrupt>
+        <name>TG0_LACT_EDGE</name>
+        <value>65</value>
+      </interrupt>
       <registers>
         <register>
           <dim>2</dim>
@@ -24721,12 +25910,54 @@ protection is enabled.</description>
     <peripheral derivedFrom="TIMG0">
       <name>TIMG1</name>
       <baseAddress>0x3f420000</baseAddress>
+      <description>General Purpose Timer 1</description>
+      <interrupt>
+        <name>TG1_T0_LEVEL</name>
+        <value>19</value>
+      </interrupt>
+      <interrupt>
+        <name>TG1_T1_LEVEL</name>
+        <value>20</value>
+      </interrupt>
+      <interrupt>
+        <name>TG1_WDT_LEVEL</name>
+        <value>21</value>
+      </interrupt>
+      <interrupt>
+        <name>TG1_LACT_LEVEL</name>
+        <value>22</value>
+      </interrupt>
+      <interrupt>
+        <name>TG1_T0_EDGE</name>
+        <value>66</value>
+      </interrupt>
+      <interrupt>
+        <name>TG1_T1_EDGE</name>
+        <value>67</value>
+      </interrupt>
+      <interrupt>
+        <name>TG1_WDT_EDGE</name>
+        <value>68</value>
+      </interrupt>
+      <interrupt>
+        <name>TG1_LACT_EDGE</name>
+        <value>69</value>
+      </interrupt>
     </peripheral>
     <peripheral>
       <name>UART0</name>
-      <description>Peripheral UART</description>
+      <description>Peripheral UART0</description>
       <groupName>UART</groupName>
       <baseAddress>0x3f400000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x7c</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>UART0</name>
+        <value>37</value>
+      </interrupt>
       <registers>
         <register>
           <name>FIFO</name>
@@ -26114,12 +27345,25 @@ The UART_RXFIFO_TOUT_INT interrupt will be triggered when the receiver takes mor
     <peripheral derivedFrom="UART0">
       <name>UART1</name>
       <baseAddress>0x3f410000</baseAddress>
+      <interrupt>
+        <name>UART1</name>
+        <value>38</value>
+      </interrupt>
     </peripheral>
     <peripheral>
       <name>UHCI0</name>
-      <description>Peripheral UHCI0</description>
+      <description>Universal Host Controller Interface</description>
       <groupName>UHCI</groupName>
       <baseAddress>0x3f414000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xc4</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>UHCI0</name>
+        <value>13</value>
+      </interrupt>
       <registers>
         <register>
           <name>CONF0</name>
@@ -27771,6 +29015,11 @@ If this bit is set to 0, UHCI decoder receiving payload data is end when 0xc0 is
       <description>Peripheral XTS_AES</description>
       <groupName>XTS_AES</groupName>
       <baseAddress>0x6003a100</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x60</size>
+        <usage>registers</usage>
+      </addressBlock>
       <registers>
         <register>
           <dim>16</dim>
