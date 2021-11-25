@@ -4,7 +4,7 @@
   <vendorID>ESPRESSIF</vendorID>
   <name>ESP32-S3</name>
   <series>ESP32-S3</series>
-  <version>1</version>
+  <version>2</version>
   <description>32-bit MCU &amp; 2.4 GHz Wi-Fi &amp; Bluetooth 5 (LE)</description>
   <licenseText>
     Copyright 2021 Espressif Systems (Shanghai) PTE LTD
@@ -2313,7 +2313,7 @@
     </peripheral>
     <peripheral>
       <name>DEBUG_ASSIST</name>
-      <description>Peripheral DEBUG_ASSIST</description>
+      <description>Debug Assist</description>
       <groupName>DEBUG_ASSIST</groupName>
       <baseAddress>0x600ce000</baseAddress>
       <addressBlock>
@@ -9100,7 +9100,7 @@
     </peripheral>
     <peripheral>
       <name>EXTMEM</name>
-      <description>Peripheral EXTMEM</description>
+      <description>External Memory</description>
       <groupName>EXTMEM</groupName>
       <baseAddress>0x600c4000</baseAddress>
       <addressBlock>
@@ -13812,8 +13812,2461 @@ level.</description>
       </interrupt>
     </peripheral>
     <peripheral>
+      <name>I2S0</name>
+      <description>I2S (Inter-IC Sound) Controller</description>
+      <groupName>I2S</groupName>
+      <baseAddress>0x6000f000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x5c</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>I2S0</name>
+        <value>32</value>
+      </interrupt>
+      <registers>
+        <register>
+          <name>INT_RAW</name>
+          <description>I2S interrupt raw register, valid in level.</description>
+          <addressOffset>0xc</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>RX_DONE_INT_RAW</name>
+              <description>The raw interrupt status bit  for the i2s_rx_done_int interrupt</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>TX_DONE_INT_RAW</name>
+              <description>The raw interrupt status bit  for the i2s_tx_done_int interrupt</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>RX_HUNG_INT_RAW</name>
+              <description>The raw interrupt status bit  for the i2s_rx_hung_int interrupt</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>TX_HUNG_INT_RAW</name>
+              <description>The raw interrupt status bit  for the i2s_tx_hung_int interrupt</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>INT_ST</name>
+          <description>I2S interrupt status register.</description>
+          <addressOffset>0x10</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>RX_DONE_INT_ST</name>
+              <description>The masked interrupt status bit  for the i2s_rx_done_int interrupt</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>TX_DONE_INT_ST</name>
+              <description>The masked interrupt status bit  for the i2s_tx_done_int interrupt</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>RX_HUNG_INT_ST</name>
+              <description>The masked interrupt status bit  for the i2s_rx_hung_int interrupt</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>TX_HUNG_INT_ST</name>
+              <description>The masked interrupt status bit  for the i2s_tx_hung_int interrupt</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>INT_ENA</name>
+          <description>I2S interrupt enable register.</description>
+          <addressOffset>0x14</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>RX_DONE_INT_ENA</name>
+              <description>The interrupt enable bit  for the i2s_rx_done_int interrupt</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_DONE_INT_ENA</name>
+              <description>The interrupt enable bit  for the i2s_tx_done_int interrupt</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_HUNG_INT_ENA</name>
+              <description>The interrupt enable bit  for the i2s_rx_hung_int interrupt</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_HUNG_INT_ENA</name>
+              <description>The interrupt enable bit  for the i2s_tx_hung_int interrupt</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>INT_CLR</name>
+          <description>I2S interrupt clear register.</description>
+          <addressOffset>0x18</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>RX_DONE_INT_CLR</name>
+              <description>Set this bit to clear the i2s_rx_done_int interrupt</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>TX_DONE_INT_CLR</name>
+              <description>Set this bit to clear the i2s_tx_done_int interrupt</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>RX_HUNG_INT_CLR</name>
+              <description>Set this bit to clear the i2s_rx_hung_int interrupt</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>TX_HUNG_INT_CLR</name>
+              <description>Set this bit to clear the i2s_tx_hung_int interrupt</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RX_CONF</name>
+          <description>I2S RX configure register</description>
+          <addressOffset>0x20</addressOffset>
+          <size>32</size>
+          <resetValue>0x9600</resetValue>
+          <fields>
+            <field>
+              <name>RX_RESET</name>
+              <description>Set this bit to reset receiver</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>RX_FIFO_RESET</name>
+              <description>Set this bit to reset Rx AFIFO</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>RX_START</name>
+              <description>Set this bit to start receiving data</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_SLAVE_MOD</name>
+              <description>Set this bit to enable slave receiver mode</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_MONO</name>
+              <description>Set this bit to enable receiver  in mono mode</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_BIG_ENDIAN</name>
+              <description>I2S Rx byte endian, 1: low addr value to high addr. 0: low addr with low addr value.</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_UPDATE</name>
+              <description>Set 1 to update I2S RX registers from APB clock domain to I2S RX clock domain. This bit will be cleared by hardware after update register done.</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_MONO_FST_VLD</name>
+              <description>1: The first channel data value is valid in I2S RX mono mode.   0: The second channel data value is valid in I2S RX mono mode.</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_PCM_CONF</name>
+              <description>I2S RX compress/decompress configuration bit. &amp; 0 (atol): A-Law decompress, 1 (ltoa) : A-Law compress, 2 (utol) : u-Law decompress, 3 (ltou) : u-Law compress. &amp;</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_PCM_BYPASS</name>
+              <description>Set this bit to bypass Compress/Decompress module for received data.</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_STOP_MODE</name>
+              <description>0  : I2S Rx only stop when reg_rx_start is cleared.   1: Stop when reg_rx_start is 0 or in_suc_eof is 1.   2:  Stop I2S RX when reg_rx_start is 0 or RX FIFO is full.</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_LEFT_ALIGN</name>
+              <description>1: I2S RX left alignment mode. 0: I2S RX right alignment mode.</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_24_FILL_EN</name>
+              <description>1: store 24 channel bits to 32 bits. 0:store 24 channel bits to 24 bits.</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_WS_IDLE_POL</name>
+              <description>0: WS should be 0 when receiving left channel data, and WS is 1in right channel.  1: WS should be 1 when receiving left channel data, and WS is 0in right channel.</description>
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_BIT_ORDER</name>
+              <description>I2S Rx bit endian. 1:small endian, the LSB is received first. 0:big endian, the MSB is received first.</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_EN</name>
+              <description>1: Enable I2S TDM Rx mode . 0: Disable.</description>
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_PDM_EN</name>
+              <description>1: Enable I2S PDM Rx mode . 0: Disable.</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_PDM2PCM_EN</name>
+              <description>1: Enable PDM2PCM RX mode. 0: DIsable.</description>
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_PDM_SINC_DSR_16_EN</name>
+              <description>Configure the down sampling rate of PDM RX filter group1 module. 1: The  down sampling rate is 128. 0: down sampling rate is 64.</description>
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TX_CONF</name>
+          <description>I2S TX configure register</description>
+          <addressOffset>0x24</addressOffset>
+          <size>32</size>
+          <resetValue>0xb200</resetValue>
+          <fields>
+            <field>
+              <name>TX_RESET</name>
+              <description>Set this bit to reset transmitter</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>TX_FIFO_RESET</name>
+              <description>Set this bit to reset Tx AFIFO</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>TX_START</name>
+              <description>Set this bit to start transmitting data</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_SLAVE_MOD</name>
+              <description>Set this bit to enable slave transmitter mode</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_MONO</name>
+              <description>Set this bit to enable transmitter in mono mode</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_CHAN_EQUAL</name>
+              <description>1: The value of Left channel data is equal to the value of right channel data in I2S TX mono mode or TDM channel select mode. 0: The invalid channel data is reg_i2s_single_data in I2S TX mono mode or TDM channel select mode.</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_BIG_ENDIAN</name>
+              <description>I2S Tx byte endian, 1: low addr value to high addr.  0: low addr with low addr value.</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_UPDATE</name>
+              <description>Set 1 to update I2S TX registers from APB clock domain to I2S TX clock domain. This bit will be cleared by hardware after update register done.</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_MONO_FST_VLD</name>
+              <description>1: The first channel data value is valid in I2S TX mono mode.   0: The second channel data value is valid in I2S TX mono mode.</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_PCM_CONF</name>
+              <description>I2S TX compress/decompress configuration bit. &amp; 0 (atol): A-Law decompress, 1 (ltoa) : A-Law compress, 2 (utol) : u-Law decompress, 3 (ltou) : u-Law compress. &amp;</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_PCM_BYPASS</name>
+              <description>Set this bit to bypass  Compress/Decompress module for transmitted data.</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_STOP_EN</name>
+              <description>Set this bit to stop disable output BCK signal and WS signal when tx FIFO is emtpy</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_LEFT_ALIGN</name>
+              <description>1: I2S TX left alignment mode. 0: I2S TX right alignment mode.</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_24_FILL_EN</name>
+              <description>1: Sent 32 bits in 24 channel bits mode. 0: Sent 24 bits in 24 channel bits mode</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_WS_IDLE_POL</name>
+              <description>0: WS should be 0 when sending left channel data, and WS is 1in right channel.  1: WS should be 1 when sending left channel data, and WS is 0in right channel.</description>
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_BIT_ORDER</name>
+              <description>I2S Tx bit endian. 1:small endian, the LSB is sent first. 0:big endian, the MSB is sent first.</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_EN</name>
+              <description>1: Enable I2S TDM Tx mode . 0: Disable.</description>
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_PDM_EN</name>
+              <description>1: Enable I2S PDM Tx mode . 0: Disable.</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_CHAN_MOD</name>
+              <description>I2S transmitter channel mode configuration bits.</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>3</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SIG_LOOPBACK</name>
+              <description>Enable signal loop back mode with transmitter module and receiver module sharing the same WS and BCK signals.</description>
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RX_CONF1</name>
+          <description>I2S RX configure register 1</description>
+          <addressOffset>0x28</addressOffset>
+          <size>32</size>
+          <resetValue>0x2f3de300</resetValue>
+          <fields>
+            <field>
+              <name>RX_TDM_WS_WIDTH</name>
+              <description>The width of rx_ws_out in TDM mode is (I2S_RX_TDM_WS_WIDTH[6:0] +1) * T_bck</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>7</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_BCK_DIV_NUM</name>
+              <description>Bit clock configuration bits in receiver mode.</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>6</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_BITS_MOD</name>
+              <description>Set the bits to configure the valid data bit length of I2S receiver channel. 7: all the valid channel data is in 8-bit-mode. 15: all the valid channel data is in 16-bit-mode. 23: all the valid channel data is in 24-bit-mode. 31:all the valid channel data is in 32-bit-mode.</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_HALF_SAMPLE_BITS</name>
+              <description>I2S Rx half sample bits -1.</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>6</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_CHAN_BITS</name>
+              <description>The Rx bit number for each channel minus 1in TDM mode.</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_MSB_SHIFT</name>
+              <description>Set this bit to enable receiver in Phillips standard mode</description>
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TX_CONF1</name>
+          <description>I2S TX configure register 1</description>
+          <addressOffset>0x2c</addressOffset>
+          <size>32</size>
+          <resetValue>0x6f3de300</resetValue>
+          <fields>
+            <field>
+              <name>TX_TDM_WS_WIDTH</name>
+              <description>The width of tx_ws_out in TDM mode is (I2S_TX_TDM_WS_WIDTH[6:0] +1) * T_bck</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>7</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_BCK_DIV_NUM</name>
+              <description>Bit clock configuration bits in transmitter mode.</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>6</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_BITS_MOD</name>
+              <description>Set the bits to configure the valid data bit length of I2S transmitter channel. 7: all the valid channel data is in 8-bit-mode. 15: all the valid channel data is in 16-bit-mode. 23: all the valid channel data is in 24-bit-mode. 31:all the valid channel data is in 32-bit-mode.</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_HALF_SAMPLE_BITS</name>
+              <description>I2S Tx half sample bits -1.</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>6</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_CHAN_BITS</name>
+              <description>The Tx bit number for each channel minus 1in TDM mode.</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_MSB_SHIFT</name>
+              <description>Set this bit to enable transmitter in Phillips standard mode</description>
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_BCK_NO_DLY</name>
+              <description>1: BCK is not delayed to generate pos/neg edge in master mode. 0: BCK is delayed to generate pos/neg edge in master mode.</description>
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RX_CLKM_CONF</name>
+          <description>I2S RX clock configure register</description>
+          <addressOffset>0x30</addressOffset>
+          <size>32</size>
+          <resetValue>0x2</resetValue>
+          <fields>
+            <field>
+              <name>RX_CLKM_DIV_NUM</name>
+              <description>Integral I2S clock divider value</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_CLK_ACTIVE</name>
+              <description>I2S Rx module clock enable signal.</description>
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_CLK_SEL</name>
+              <description>Select I2S Rx module source clock. 0: no clock. 1: APLL. 2: CLK160. 3: I2S_MCLK_in.</description>
+              <bitOffset>27</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCLK_SEL</name>
+              <description>0: UseI2S Tx module clock as I2S_MCLK_OUT.  1: UseI2S Rx module clock as I2S_MCLK_OUT.</description>
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TX_CLKM_CONF</name>
+          <description>I2S TX clock configure register</description>
+          <addressOffset>0x34</addressOffset>
+          <size>32</size>
+          <resetValue>0x2</resetValue>
+          <fields>
+            <field>
+              <name>TX_CLKM_DIV_NUM</name>
+              <description>Integral I2S TX clock divider value. f_I2S_CLK = f_I2S_CLK_S/(N+b/a). There will be (a-b) * n-div and b * (n+1)-div.  So the average combination will be:  for b &lt;= a/2, z * [x * n-div + (n+1)-div] + y * n-div. For b &gt; a/2, z * [n-div + x * (n+1)-div] + y * (n+1)-div.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_CLK_ACTIVE</name>
+              <description>I2S Tx module clock enable signal.</description>
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_CLK_SEL</name>
+              <description>Select I2S Tx module source clock. 0: XTAL clock. 1: APLL. 2: CLK160. 3: I2S_MCLK_in.</description>
+              <bitOffset>27</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CLK_EN</name>
+              <description>Set this bit to enable clk gate</description>
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RX_CLKM_DIV_CONF</name>
+          <description>I2S RX module clock divider configure register</description>
+          <addressOffset>0x38</addressOffset>
+          <size>32</size>
+          <resetValue>0x200</resetValue>
+          <fields>
+            <field>
+              <name>RX_CLKM_DIV_Z</name>
+              <description>For b &lt;= a/2, the value of I2S_RX_CLKM_DIV_Z is b. For b &gt; a/2, the value of I2S_RX_CLKM_DIV_Z is (a-b).</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>9</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_CLKM_DIV_Y</name>
+              <description>For b &lt;= a/2, the value of I2S_RX_CLKM_DIV_Y is (a%b) . For b &gt; a/2, the value of I2S_RX_CLKM_DIV_Y is (a%(a-b)).</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>9</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_CLKM_DIV_X</name>
+              <description>For b &lt;= a/2, the value of I2S_RX_CLKM_DIV_X is (a/b) - 1. For b &gt; a/2, the value of I2S_RX_CLKM_DIV_X is (a/(a-b)) - 1.</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>9</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_CLKM_DIV_YN1</name>
+              <description>For b &lt;= a/2, the value of I2S_RX_CLKM_DIV_YN1 is 0 . For b &gt; a/2, the value of I2S_RX_CLKM_DIV_YN1 is 1.</description>
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TX_CLKM_DIV_CONF</name>
+          <description>I2S TX module clock divider configure register</description>
+          <addressOffset>0x3c</addressOffset>
+          <size>32</size>
+          <resetValue>0x200</resetValue>
+          <fields>
+            <field>
+              <name>TX_CLKM_DIV_Z</name>
+              <description>For b &lt;= a/2, the value of I2S_TX_CLKM_DIV_Z is b. For b &gt; a/2, the value of I2S_TX_CLKM_DIV_Z is (a-b).</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>9</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_CLKM_DIV_Y</name>
+              <description>For b &lt;= a/2, the value of I2S_TX_CLKM_DIV_Y is (a%b) . For b &gt; a/2, the value of I2S_TX_CLKM_DIV_Y is (a%(a-b)).</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>9</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_CLKM_DIV_X</name>
+              <description>For b &lt;= a/2, the value of I2S_TX_CLKM_DIV_X is (a/b) - 1. For b &gt; a/2, the value of I2S_TX_CLKM_DIV_X is (a/(a-b)) - 1.</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>9</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_CLKM_DIV_YN1</name>
+              <description>For b &lt;= a/2, the value of I2S_TX_CLKM_DIV_YN1 is 0 . For b &gt; a/2, the value of I2S_TX_CLKM_DIV_YN1 is 1.</description>
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TX_PCM2PDM_CONF</name>
+          <description>I2S TX PCM2PDM configuration register</description>
+          <addressOffset>0x40</addressOffset>
+          <size>32</size>
+          <resetValue>0x4aa004</resetValue>
+          <fields>
+            <field>
+              <name>TX_PDM_HP_BYPASS</name>
+              <description>I2S TX PDM bypass hp filter or not. The option has been removed.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_PDM_SINC_OSR2</name>
+              <description>I2S TX PDM OSR2 value</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_PDM_PRESCALE</name>
+              <description>I2S TX PDM prescale for sigmadelta</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_PDM_HP_IN_SHIFT</name>
+              <description>I2S TX PDM sigmadelta scale shift number: 0:/2 , 1:x1 , 2:x2 , 3: x4</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_PDM_LP_IN_SHIFT</name>
+              <description>I2S TX PDM sigmadelta scale shift number: 0:/2 , 1:x1 , 2:x2 , 3: x4</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_PDM_SINC_IN_SHIFT</name>
+              <description>I2S TX PDM sigmadelta scale shift number: 0:/2 , 1:x1 , 2:x2 , 3: x4</description>
+              <bitOffset>17</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_PDM_SIGMADELTA_IN_SHIFT</name>
+              <description>I2S TX PDM sigmadelta scale shift number: 0:/2 , 1:x1 , 2:x2 , 3: x4</description>
+              <bitOffset>19</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_PDM_SIGMADELTA_DITHER2</name>
+              <description>I2S TX PDM sigmadelta dither2 value</description>
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_PDM_SIGMADELTA_DITHER</name>
+              <description>I2S TX PDM sigmadelta dither value</description>
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_PDM_DAC_2OUT_EN</name>
+              <description>I2S TX PDM dac mode enable</description>
+              <bitOffset>23</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_PDM_DAC_MODE_EN</name>
+              <description>I2S TX PDM dac 2channel enable</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PCM2PDM_CONV_EN</name>
+              <description>I2S TX PDM Converter enable</description>
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TX_PCM2PDM_CONF1</name>
+          <description>I2S TX PCM2PDM configuration register</description>
+          <addressOffset>0x44</addressOffset>
+          <size>32</size>
+          <resetValue>0x3f783c0</resetValue>
+          <fields>
+            <field>
+              <name>TX_PDM_FP</name>
+              <description>I2S TX PDM Fp</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_PDM_FS</name>
+              <description>I2S TX PDM Fs</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>10</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_IIR_HP_MULT12_5</name>
+              <description>The fourth parameter of PDM TX IIR_HP filter stage 2 is (504 + I2S_TX_IIR_HP_MULT12_5[2:0])</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>3</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_IIR_HP_MULT12_0</name>
+              <description>The fourth parameter of PDM TX IIR_HP filter stage 1 is (504 + I2S_TX_IIR_HP_MULT12_0[2:0])</description>
+              <bitOffset>23</bitOffset>
+              <bitWidth>3</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RX_TDM_CTRL</name>
+          <description>I2S TX TDM mode control register</description>
+          <addressOffset>0x50</addressOffset>
+          <size>32</size>
+          <resetValue>0xffff</resetValue>
+          <fields>
+            <field>
+              <name>RX_TDM_PDM_CHAN0_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM or PDM channel 0. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_PDM_CHAN1_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM or PDM channel 1. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_PDM_CHAN2_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM or PDM channel 2. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_PDM_CHAN3_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM or PDM channel 3. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_PDM_CHAN4_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM or PDM channel 4. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_PDM_CHAN5_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM or PDM channel 5. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_PDM_CHAN6_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM or PDM channel 6. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_PDM_CHAN7_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM or PDM channel 7. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_CHAN8_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM channel 8. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_CHAN9_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM channel 9. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_CHAN10_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM channel 10. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_CHAN11_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM channel 11. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_CHAN12_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM channel 12. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_CHAN13_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM channel 13. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_CHAN14_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM channel 14. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_CHAN15_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM channel 15. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_TDM_TOT_CHAN_NUM</name>
+              <description>The total channel number of I2S TX TDM mode.</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TX_TDM_CTRL</name>
+          <description>I2S TX TDM mode control register</description>
+          <addressOffset>0x54</addressOffset>
+          <size>32</size>
+          <resetValue>0xffff</resetValue>
+          <fields>
+            <field>
+              <name>TX_TDM_CHAN0_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 0. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_CHAN1_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 1. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_CHAN2_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 2. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_CHAN3_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 3. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_CHAN4_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 4. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_CHAN5_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 5. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_CHAN6_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 6. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_CHAN7_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 7. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_CHAN8_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 8. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_CHAN9_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 9. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_CHAN10_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 10. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_CHAN11_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 11. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_CHAN12_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 12. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_CHAN13_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 13. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_CHAN14_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 14. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_CHAN15_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 15. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_TOT_CHAN_NUM</name>
+              <description>The total channel number of I2S TX TDM mode.</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_TDM_SKIP_MSK_EN</name>
+              <description>When DMA TX buffer stores the data of (REG_TX_TDM_TOT_CHAN_NUM + 1)  channels, and only the data of the enabled channels is sent, then this bit should be set. Clear it when all the data stored in DMA TX buffer is for enabled channels.</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RX_TIMING</name>
+          <description>I2S RX timing control register</description>
+          <addressOffset>0x58</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>RX_SD_IN_DM</name>
+              <description>The delay mode of I2S Rx SD input signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_SD1_IN_DM</name>
+              <description>The delay mode of I2S Rx SD1 input signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_SD2_IN_DM</name>
+              <description>The delay mode of I2S Rx SD2 input signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_SD3_IN_DM</name>
+              <description>The delay mode of I2S Rx SD3 input signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_WS_OUT_DM</name>
+              <description>The delay mode of I2S Rx WS output signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_BCK_OUT_DM</name>
+              <description>The delay mode of I2S Rx BCK output signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_WS_IN_DM</name>
+              <description>The delay mode of I2S Rx WS input signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_BCK_IN_DM</name>
+              <description>The delay mode of I2S Rx BCK input signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>28</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TX_TIMING</name>
+          <description>I2S TX timing control register</description>
+          <addressOffset>0x5c</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>TX_SD_OUT_DM</name>
+              <description>The delay mode of I2S TX SD output signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_SD1_OUT_DM</name>
+              <description>The delay mode of I2S TX SD1 output signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_WS_OUT_DM</name>
+              <description>The delay mode of I2S TX WS output signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_BCK_OUT_DM</name>
+              <description>The delay mode of I2S TX BCK output signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_WS_IN_DM</name>
+              <description>The delay mode of I2S TX WS input signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_BCK_IN_DM</name>
+              <description>The delay mode of I2S TX BCK input signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>28</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>LC_HUNG_CONF</name>
+          <description>I2S HUNG configure register.</description>
+          <addressOffset>0x60</addressOffset>
+          <size>32</size>
+          <resetValue>0x810</resetValue>
+          <fields>
+            <field>
+              <name>LC_FIFO_TIMEOUT</name>
+              <description>the i2s_tx_hung_int interrupt or the i2s_rx_hung_int interrupt will be triggered when fifo hung counter is equal to this value</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>LC_FIFO_TIMEOUT_SHIFT</name>
+              <description>The bits are used to scale tick counter threshold. The tick counter is reset when counter value &gt;= 88000/2^i2s_lc_fifo_timeout_shift</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>3</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>LC_FIFO_TIMEOUT_ENA</name>
+              <description>The enable bit for FIFO timeout</description>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RXEOF_NUM</name>
+          <description>I2S RX data number control register.</description>
+          <addressOffset>0x64</addressOffset>
+          <size>32</size>
+          <resetValue>0x40</resetValue>
+          <fields>
+            <field>
+              <name>RX_EOF_NUM</name>
+              <description>The receive data bit length is (I2S_RX_BITS_MOD[4:0] + 1) * (REG_RX_EOF_NUM[11:0] + 1) . It will trigger in_suc_eof interrupt in the configured DMA RX channel.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>12</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CONF_SIGLE_DATA</name>
+          <description>I2S signal data register</description>
+          <addressOffset>0x68</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>SINGLE_DATA</name>
+              <description>The configured constant channel data to be sent out.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>STATE</name>
+          <description>I2S TX status register</description>
+          <addressOffset>0x6c</addressOffset>
+          <size>32</size>
+          <resetValue>0x1</resetValue>
+          <fields>
+            <field>
+              <name>TX_IDLE</name>
+              <description>1: i2s_tx is idle state. 0: i2s_tx is working.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DATE</name>
+          <description>Version control register</description>
+          <addressOffset>0x80</addressOffset>
+          <size>32</size>
+          <resetValue>0x2009070</resetValue>
+          <fields>
+            <field>
+              <name>DATE</name>
+              <description>I2S version control register</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>28</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>I2S1</name>
+      <description>I2S (Inter-IC Sound) Controller</description>
+      <groupName>I2S1</groupName>
+      <baseAddress>0x6002d000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x54</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>I2S1</name>
+        <value>33</value>
+      </interrupt>
+      <registers>
+        <register>
+          <name>I2S_INT_RAW</name>
+          <description>I2S interrupt raw register, valid in level.</description>
+          <addressOffset>0xc</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>I2S_RX_DONE_INT_RAW</name>
+              <description>The raw interrupt status bit  for the i2s_rx_done_int interrupt</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>I2S_TX_DONE_INT_RAW</name>
+              <description>The raw interrupt status bit  for the i2s_tx_done_int interrupt</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>I2S_RX_HUNG_INT_RAW</name>
+              <description>The raw interrupt status bit  for the i2s_rx_hung_int interrupt</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>I2S_TX_HUNG_INT_RAW</name>
+              <description>The raw interrupt status bit  for the i2s_tx_hung_int interrupt</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_INT_ST</name>
+          <description>I2S interrupt status register.</description>
+          <addressOffset>0x10</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>I2S_RX_DONE_INT_ST</name>
+              <description>The masked interrupt status bit  for the i2s_rx_done_int interrupt</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>I2S_TX_DONE_INT_ST</name>
+              <description>The masked interrupt status bit  for the i2s_tx_done_int interrupt</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>I2S_RX_HUNG_INT_ST</name>
+              <description>The masked interrupt status bit  for the i2s_rx_hung_int interrupt</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>I2S_TX_HUNG_INT_ST</name>
+              <description>The masked interrupt status bit  for the i2s_tx_hung_int interrupt</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_INT_ENA</name>
+          <description>I2S interrupt enable register.</description>
+          <addressOffset>0x14</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>I2S_RX_DONE_INT_ENA</name>
+              <description>The interrupt enable bit  for the i2s_rx_done_int interrupt</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_DONE_INT_ENA</name>
+              <description>The interrupt enable bit  for the i2s_tx_done_int interrupt</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_HUNG_INT_ENA</name>
+              <description>The interrupt enable bit  for the i2s_rx_hung_int interrupt</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_HUNG_INT_ENA</name>
+              <description>The interrupt enable bit  for the i2s_tx_hung_int interrupt</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_INT_CLR</name>
+          <description>I2S interrupt clear register.</description>
+          <addressOffset>0x18</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>I2S_RX_DONE_INT_CLR</name>
+              <description>Set this bit to clear the i2s_rx_done_int interrupt</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>I2S_TX_DONE_INT_CLR</name>
+              <description>Set this bit to clear the i2s_tx_done_int interrupt</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>I2S_RX_HUNG_INT_CLR</name>
+              <description>Set this bit to clear the i2s_rx_hung_int interrupt</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>I2S_TX_HUNG_INT_CLR</name>
+              <description>Set this bit to clear the i2s_tx_hung_int interrupt</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_RX_CONF</name>
+          <description>I2S RX configure register</description>
+          <addressOffset>0x20</addressOffset>
+          <size>32</size>
+          <resetValue>0x9600</resetValue>
+          <fields>
+            <field>
+              <name>I2S_RX_RESET</name>
+              <description>Set this bit to reset receiver</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>I2S_RX_FIFO_RESET</name>
+              <description>Set this bit to reset Rx AFIFO</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>I2S_RX_START</name>
+              <description>Set this bit to start receiving data</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_SLAVE_MOD</name>
+              <description>Set this bit to enable slave receiver mode</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_MONO</name>
+              <description>Set this bit to enable receiver  in mono mode</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_BIG_ENDIAN</name>
+              <description>I2S Rx byte endian, 1: low addr value to high addr. 0: low addr with low addr value.</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_UPDATE</name>
+              <description>Set 1 to update I2S RX registers from APB clock domain to I2S RX clock domain. This bit will be cleared by hardware after update register done.</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_MONO_FST_VLD</name>
+              <description>1: The first channel data value is valid in I2S RX mono mode.   0: The second channel data value is valid in I2S RX mono mode.</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_PCM_CONF</name>
+              <description>I2S RX compress/decompress configuration bit. &amp; 0 (atol): A-Law decompress, 1 (ltoa) : A-Law compress, 2 (utol) : u-Law decompress, 3 (ltou) : u-Law compress. &amp;</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_PCM_BYPASS</name>
+              <description>Set this bit to bypass Compress/Decompress module for received data.</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_STOP_MODE</name>
+              <description>0  : I2S Rx only stop when reg_rx_start is cleared.   1: Stop when reg_rx_start is 0 or in_suc_eof is 1.   2:  Stop I2S RX when reg_rx_start is 0 or RX FIFO is full.</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_LEFT_ALIGN</name>
+              <description>1: I2S RX left alignment mode. 0: I2S RX right alignment mode.</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_24_FILL_EN</name>
+              <description>1: store 24 channel bits to 32 bits. 0:store 24 channel bits to 24 bits.</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_WS_IDLE_POL</name>
+              <description>0: WS should be 0 when receiving left channel data, and WS is 1in right channel.  1: WS should be 1 when receiving left channel data, and WS is 0in right channel.</description>
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_BIT_ORDER</name>
+              <description>I2S Rx bit endian. 1:small endian, the LSB is received first. 0:big endian, the MSB is received first.</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_EN</name>
+              <description>1: Enable I2S TDM Rx mode . 0: Disable.</description>
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_PDM_EN</name>
+              <description>1: Enable I2S PDM Rx mode . 0: Disable.</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_TX_CONF</name>
+          <description>I2S TX configure register</description>
+          <addressOffset>0x24</addressOffset>
+          <size>32</size>
+          <resetValue>0xb200</resetValue>
+          <fields>
+            <field>
+              <name>I2S_TX_RESET</name>
+              <description>Set this bit to reset transmitter</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>I2S_TX_FIFO_RESET</name>
+              <description>Set this bit to reset Tx AFIFO</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>I2S_TX_START</name>
+              <description>Set this bit to start transmitting data</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_SLAVE_MOD</name>
+              <description>Set this bit to enable slave transmitter mode</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_MONO</name>
+              <description>Set this bit to enable transmitter in mono mode</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_CHAN_EQUAL</name>
+              <description>1: The value of Left channel data is equal to the value of right channel data in I2S TX mono mode or TDM channel select mode. 0: The invalid channel data is reg_i2s_single_data in I2S TX mono mode or TDM channel select mode.</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_BIG_ENDIAN</name>
+              <description>I2S Tx byte endian, 1: low addr value to high addr.  0: low addr with low addr value.</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_UPDATE</name>
+              <description>Set 1 to update I2S TX registers from APB clock domain to I2S TX clock domain. This bit will be cleared by hardware after update register done.</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_MONO_FST_VLD</name>
+              <description>1: The first channel data value is valid in I2S TX mono mode.   0: The second channel data value is valid in I2S TX mono mode.</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_PCM_CONF</name>
+              <description>I2S TX compress/decompress configuration bit. &amp; 0 (atol): A-Law decompress, 1 (ltoa) : A-Law compress, 2 (utol) : u-Law decompress, 3 (ltou) : u-Law compress. &amp;</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_PCM_BYPASS</name>
+              <description>Set this bit to bypass  Compress/Decompress module for transmitted data.</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_STOP_EN</name>
+              <description>Set this bit to stop disable output BCK signal and WS signal when tx FIFO is emtpy</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_LEFT_ALIGN</name>
+              <description>1: I2S TX left alignment mode. 0: I2S TX right alignment mode.</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_24_FILL_EN</name>
+              <description>1: Sent 32 bits in 24 channel bits mode. 0: Sent 24 bits in 24 channel bits mode</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_WS_IDLE_POL</name>
+              <description>0: WS should be 0 when sending left channel data, and WS is 1in right channel.  1: WS should be 1 when sending left channel data, and WS is 0in right channel.</description>
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_BIT_ORDER</name>
+              <description>I2S Tx bit endian. 1:small endian, the LSB is sent first. 0:big endian, the MSB is sent first.</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_EN</name>
+              <description>1: Enable I2S TDM Tx mode . 0: Disable.</description>
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_PDM_EN</name>
+              <description>1: Enable I2S PDM Tx mode . 0: Disable.</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_CHAN_MOD</name>
+              <description>I2S transmitter channel mode configuration bits.</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>3</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_SIG_LOOPBACK</name>
+              <description>Enable signal loop back mode with transmitter module and receiver module sharing the same WS and BCK signals.</description>
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_RX_CONF1</name>
+          <description>I2S RX configure register 1</description>
+          <addressOffset>0x28</addressOffset>
+          <size>32</size>
+          <resetValue>0x2f3de300</resetValue>
+          <fields>
+            <field>
+              <name>I2S_RX_TDM_WS_WIDTH</name>
+              <description>The width of rx_ws_out in TDM mode is (I2S_RX_TDM_WS_WIDTH[6:0] +1) * T_bck</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>7</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_BCK_DIV_NUM</name>
+              <description>Bit clock configuration bits in receiver mode.</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>6</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_BITS_MOD</name>
+              <description>Set the bits to configure the valid data bit length of I2S receiver channel. 7: all the valid channel data is in 8-bit-mode. 15: all the valid channel data is in 16-bit-mode. 23: all the valid channel data is in 24-bit-mode. 31:all the valid channel data is in 32-bit-mode.</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_HALF_SAMPLE_BITS</name>
+              <description>I2S Rx half sample bits -1.</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>6</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_CHAN_BITS</name>
+              <description>The Rx bit number for each channel minus 1in TDM mode.</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_MSB_SHIFT</name>
+              <description>Set this bit to enable receiver in Phillips standard mode</description>
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_TX_CONF1</name>
+          <description>I2S TX configure register 1</description>
+          <addressOffset>0x2c</addressOffset>
+          <size>32</size>
+          <resetValue>0x6f3de300</resetValue>
+          <fields>
+            <field>
+              <name>I2S_TX_TDM_WS_WIDTH</name>
+              <description>The width of tx_ws_out in TDM mode is (I2S_TX_TDM_WS_WIDTH[6:0] +1) * T_bck</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>7</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_BCK_DIV_NUM</name>
+              <description>Bit clock configuration bits in transmitter mode.</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>6</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_BITS_MOD</name>
+              <description>Set the bits to configure the valid data bit length of I2S transmitter channel. 7: all the valid channel data is in 8-bit-mode. 15: all the valid channel data is in 16-bit-mode. 23: all the valid channel data is in 24-bit-mode. 31:all the valid channel data is in 32-bit-mode.</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_HALF_SAMPLE_BITS</name>
+              <description>I2S Tx half sample bits -1.</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>6</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_CHAN_BITS</name>
+              <description>The Tx bit number for each channel minus 1in TDM mode.</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_MSB_SHIFT</name>
+              <description>Set this bit to enable transmitter in Phillips standard mode</description>
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_BCK_NO_DLY</name>
+              <description>1: BCK is not delayed to generate pos/neg edge in master mode. 0: BCK is delayed to generate pos/neg edge in master mode.</description>
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_RX_CLKM_CONF</name>
+          <description>I2S RX clock configure register</description>
+          <addressOffset>0x30</addressOffset>
+          <size>32</size>
+          <resetValue>0x2</resetValue>
+          <fields>
+            <field>
+              <name>I2S_RX_CLKM_DIV_NUM</name>
+              <description>Integral I2S clock divider value</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_CLK_ACTIVE</name>
+              <description>I2S Rx module clock enable signal.</description>
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_CLK_SEL</name>
+              <description>Select I2S Rx module source clock. 0: no clock. 1: APLL. 2: CLK160. 3: I2S_MCLK_in.</description>
+              <bitOffset>27</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_MCLK_SEL</name>
+              <description>0: UseI2S Tx module clock as I2S_MCLK_OUT.  1: UseI2S Rx module clock as I2S_MCLK_OUT.</description>
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_TX_CLKM_CONF</name>
+          <description>I2S TX clock configure register</description>
+          <addressOffset>0x34</addressOffset>
+          <size>32</size>
+          <resetValue>0x2</resetValue>
+          <fields>
+            <field>
+              <name>I2S_TX_CLKM_DIV_NUM</name>
+              <description>Integral I2S TX clock divider value. f_I2S_CLK = f_I2S_CLK_S/(N+b/a). There will be (a-b) * n-div and b * (n+1)-div.  So the average combination will be:  for b &lt;= a/2, z * [x * n-div + (n+1)-div] + y * n-div. For b &gt; a/2, z * [n-div + x * (n+1)-div] + y * (n+1)-div.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_CLK_ACTIVE</name>
+              <description>I2S Tx module clock enable signal.</description>
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_CLK_SEL</name>
+              <description>Select I2S Tx module source clock. 0: XTAL clock. 1: APLL. 2: CLK160. 3: I2S_MCLK_in.</description>
+              <bitOffset>27</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_CLK_EN</name>
+              <description>Set this bit to enable clk gate</description>
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_RX_CLKM_DIV_CONF</name>
+          <description>I2S RX module clock divider configure register</description>
+          <addressOffset>0x38</addressOffset>
+          <size>32</size>
+          <resetValue>0x200</resetValue>
+          <fields>
+            <field>
+              <name>I2S_RX_CLKM_DIV_Z</name>
+              <description>For b &lt;= a/2, the value of I2S_RX_CLKM_DIV_Z is b. For b &gt; a/2, the value of I2S_RX_CLKM_DIV_Z is (a-b).</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>9</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_CLKM_DIV_Y</name>
+              <description>For b &lt;= a/2, the value of I2S_RX_CLKM_DIV_Y is (a%b) . For b &gt; a/2, the value of I2S_RX_CLKM_DIV_Y is (a%(a-b)).</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>9</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_CLKM_DIV_X</name>
+              <description>For b &lt;= a/2, the value of I2S_RX_CLKM_DIV_X is (a/b) - 1. For b &gt; a/2, the value of I2S_RX_CLKM_DIV_X is (a/(a-b)) - 1.</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>9</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_CLKM_DIV_YN1</name>
+              <description>For b &lt;= a/2, the value of I2S_RX_CLKM_DIV_YN1 is 0 . For b &gt; a/2, the value of I2S_RX_CLKM_DIV_YN1 is 1.</description>
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_TX_CLKM_DIV_CONF</name>
+          <description>I2S TX module clock divider configure register</description>
+          <addressOffset>0x3c</addressOffset>
+          <size>32</size>
+          <resetValue>0x200</resetValue>
+          <fields>
+            <field>
+              <name>I2S_TX_CLKM_DIV_Z</name>
+              <description>For b &lt;= a/2, the value of I2S_TX_CLKM_DIV_Z is b. For b &gt; a/2, the value of I2S_TX_CLKM_DIV_Z is (a-b).</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>9</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_CLKM_DIV_Y</name>
+              <description>For b &lt;= a/2, the value of I2S_TX_CLKM_DIV_Y is (a%b) . For b &gt; a/2, the value of I2S_TX_CLKM_DIV_Y is (a%(a-b)).</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>9</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_CLKM_DIV_X</name>
+              <description>For b &lt;= a/2, the value of I2S_TX_CLKM_DIV_X is (a/b) - 1. For b &gt; a/2, the value of I2S_TX_CLKM_DIV_X is (a/(a-b)) - 1.</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>9</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_CLKM_DIV_YN1</name>
+              <description>For b &lt;= a/2, the value of I2S_TX_CLKM_DIV_YN1 is 0 . For b &gt; a/2, the value of I2S_TX_CLKM_DIV_YN1 is 1.</description>
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_RX_TDM_CTRL</name>
+          <description>I2S TX TDM mode control register</description>
+          <addressOffset>0x50</addressOffset>
+          <size>32</size>
+          <resetValue>0xffff</resetValue>
+          <fields>
+            <field>
+              <name>I2S_RX_TDM_PDM_CHAN0_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM or PDM channel 0. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_PDM_CHAN1_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM or PDM channel 1. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_PDM_CHAN2_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM or PDM channel 2. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_PDM_CHAN3_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM or PDM channel 3. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_PDM_CHAN4_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM or PDM channel 4. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_PDM_CHAN5_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM or PDM channel 5. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_PDM_CHAN6_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM or PDM channel 6. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_PDM_CHAN7_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM or PDM channel 7. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_CHAN8_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM channel 8. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_CHAN9_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM channel 9. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_CHAN10_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM channel 10. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_CHAN11_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM channel 11. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_CHAN12_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM channel 12. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_CHAN13_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM channel 13. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_CHAN14_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM channel 14. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_CHAN15_EN</name>
+              <description>1: Enable the valid data input of I2S RX TDM channel 15. 0:  Disable, just input 0 in this channel.</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_TDM_TOT_CHAN_NUM</name>
+              <description>The total channel number of I2S TX TDM mode.</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_TX_TDM_CTRL</name>
+          <description>I2S TX TDM mode control register</description>
+          <addressOffset>0x54</addressOffset>
+          <size>32</size>
+          <resetValue>0xffff</resetValue>
+          <fields>
+            <field>
+              <name>I2S_TX_TDM_CHAN0_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 0. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_CHAN1_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 1. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_CHAN2_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 2. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_CHAN3_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 3. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_CHAN4_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 4. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_CHAN5_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 5. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_CHAN6_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 6. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_CHAN7_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 7. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_CHAN8_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 8. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_CHAN9_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 9. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_CHAN10_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 10. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_CHAN11_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 11. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_CHAN12_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 12. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_CHAN13_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 13. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_CHAN14_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 14. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_CHAN15_EN</name>
+              <description>1: Enable the valid data output of I2S TX TDM channel 15. 0:  Disable, just output 0 in this channel.</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_TOT_CHAN_NUM</name>
+              <description>The total channel number of I2S TX TDM mode.</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_TDM_SKIP_MSK_EN</name>
+              <description>When DMA TX buffer stores the data of (REG_TX_TDM_TOT_CHAN_NUM + 1)  channels, and only the data of the enabled channels is sent, then this bit should be set. Clear it when all the data stored in DMA TX buffer is for enabled channels.</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_RX_TIMING</name>
+          <description>I2S RX timing control register</description>
+          <addressOffset>0x58</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>I2S_RX_SD_IN_DM</name>
+              <description>The delay mode of I2S Rx SD input signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_WS_OUT_DM</name>
+              <description>The delay mode of I2S Rx WS output signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_BCK_OUT_DM</name>
+              <description>The delay mode of I2S Rx BCK output signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_WS_IN_DM</name>
+              <description>The delay mode of I2S Rx WS input signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_RX_BCK_IN_DM</name>
+              <description>The delay mode of I2S Rx BCK input signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>28</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_TX_TIMING</name>
+          <description>I2S TX timing control register</description>
+          <addressOffset>0x5c</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>I2S_TX_SD_OUT_DM</name>
+              <description>The delay mode of I2S TX SD output signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_SD1_OUT_DM</name>
+              <description>The delay mode of I2S TX SD1 output signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_WS_OUT_DM</name>
+              <description>The delay mode of I2S TX WS output signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_BCK_OUT_DM</name>
+              <description>The delay mode of I2S TX BCK output signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_WS_IN_DM</name>
+              <description>The delay mode of I2S TX WS input signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_TX_BCK_IN_DM</name>
+              <description>The delay mode of I2S TX BCK input signal. 0: bypass. 1: delay by pos edge.  2: delay by neg edge. 3: not used.</description>
+              <bitOffset>28</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_LC_HUNG_CONF</name>
+          <description>I2S HUNG configure register.</description>
+          <addressOffset>0x60</addressOffset>
+          <size>32</size>
+          <resetValue>0x810</resetValue>
+          <fields>
+            <field>
+              <name>I2S_LC_FIFO_TIMEOUT</name>
+              <description>the i2s_tx_hung_int interrupt or the i2s_rx_hung_int interrupt will be triggered when fifo hung counter is equal to this value</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_LC_FIFO_TIMEOUT_SHIFT</name>
+              <description>The bits are used to scale tick counter threshold. The tick counter is reset when counter value &gt;= 88000/2^i2s_lc_fifo_timeout_shift</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>3</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S_LC_FIFO_TIMEOUT_ENA</name>
+              <description>The enable bit for FIFO timeout</description>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_RXEOF_NUM</name>
+          <description>I2S RX data number control register.</description>
+          <addressOffset>0x64</addressOffset>
+          <size>32</size>
+          <resetValue>0x40</resetValue>
+          <fields>
+            <field>
+              <name>I2S_RX_EOF_NUM</name>
+              <description>The receive data bit length is (I2S_RX_BITS_MOD[4:0] + 1) * (REG_RX_EOF_NUM[11:0] + 1) . It will trigger in_suc_eof interrupt in the configured DMA RX channel.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>12</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_CONF_SIGLE_DATA</name>
+          <description>I2S signal data register</description>
+          <addressOffset>0x68</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>I2S_SINGLE_DATA</name>
+              <description>The configured constant channel data to be sent out.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_STATE</name>
+          <description>I2S TX status register</description>
+          <addressOffset>0x6c</addressOffset>
+          <size>32</size>
+          <resetValue>0x1</resetValue>
+          <fields>
+            <field>
+              <name>I2S_TX_IDLE</name>
+              <description>1: i2s_tx is idle state. 0: i2s_tx is working.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>I2S_DATE</name>
+          <description>Version control register</description>
+          <addressOffset>0x80</addressOffset>
+          <size>32</size>
+          <resetValue>0x2009070</resetValue>
+          <fields>
+            <field>
+              <name>I2S_DATE</name>
+              <description>I2S version control register</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>28</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
       <name>INTERRUPT_CORE0</name>
-      <description>Peripheral INTERRUPT_CORE0</description>
+      <description>Interrupt Core</description>
       <groupName>INTERRUPT_CORE0</groupName>
       <baseAddress>0x600c2000</baseAddress>
       <addressBlock>
@@ -15502,7 +17955,7 @@ level.</description>
     </peripheral>
     <peripheral>
       <name>INTERRUPT_CORE1</name>
-      <description>Peripheral INTERRUPT_CORE1</description>
+      <description>Interrupt Core</description>
       <groupName>INTERRUPT_CORE1</groupName>
       <baseAddress>0x600c2800</baseAddress>
       <addressBlock>
@@ -40998,6 +43451,1516 @@ Any pulses with width less than this will be ignored when the filter is enabled.
         <name>SPI1_DMA</name>
         <value>52</value>
       </interrupt>
+    </peripheral>
+    <peripheral>
+      <name>SYSTEM</name>
+      <description>System</description>
+      <groupName>SYSTEM</groupName>
+      <baseAddress>0x600c0000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0xa8</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <registers>
+        <register>
+          <name>CORE_1_CONTROL_0</name>
+          <description>Core0 control regiter 0</description>
+          <addressOffset>0x0</addressOffset>
+          <size>32</size>
+          <resetValue>0x4</resetValue>
+          <fields>
+            <field>
+              <name>CONTROL_CORE_1_RUNSTALL</name>
+              <description>Set 1 to stall core1</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CONTROL_CORE_1_CLKGATE_EN</name>
+              <description>Set 1 to open core1 clock</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CONTROL_CORE_1_RESETING</name>
+              <description>Set 1 to let core1 reset</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CORE_1_CONTROL_1</name>
+          <description>Core0 control regiter 1</description>
+          <addressOffset>0x4</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>CONTROL_CORE_1_MESSAGE</name>
+              <description>it's only a R/W register, no function, software can write any value</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CPU_PERI_CLK_EN</name>
+          <description>cpu_peripheral clock configuration register</description>
+          <addressOffset>0x8</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>CLK_EN_ASSIST_DEBUG</name>
+              <description>Set 1 to open assist_debug module clock</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CLK_EN_DEDICATED_GPIO</name>
+              <description>Set 1 to open dedicated_gpio module clk</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CPU_PERI_RST_EN</name>
+          <description>cpu_peripheral reset configuration regsiter</description>
+          <addressOffset>0xc</addressOffset>
+          <size>32</size>
+          <resetValue>0xc0</resetValue>
+          <fields>
+            <field>
+              <name>RST_EN_ASSIST_DEBUG</name>
+              <description>Set 1 to let assist_debug module reset</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RST_EN_DEDICATED_GPIO</name>
+              <description>Set 1 to let dedicated_gpio module reset</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CPU_PER_CONF</name>
+          <description>cpu peripheral clock configuration register</description>
+          <addressOffset>0x10</addressOffset>
+          <size>32</size>
+          <resetValue>0xc</resetValue>
+          <fields>
+            <field>
+              <name>CPUPERIOD_SEL</name>
+              <description>This field used to sel cpu clock frequent.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PLL_FREQ_SEL</name>
+              <description>This field used to sel pll frequent.</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CPU_WAIT_MODE_FORCE_ON</name>
+              <description>Set 1 to force cpu_waiti_clk enable.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CPU_WAITI_DELAY_NUM</name>
+              <description>This field used to set delay cycle when cpu enter waiti mode, after delay waiti_clk will close</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>MEM_PD_MASK</name>
+          <description>memory power down mask configuration register</description>
+          <addressOffset>0x14</addressOffset>
+          <size>32</size>
+          <resetValue>0x1</resetValue>
+          <fields>
+            <field>
+              <name>LSLP_MEM_PD_MASK</name>
+              <description>Set 1 to mask memory power down.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>PERIP_CLK_EN0</name>
+          <description>peripheral clock configuration regsiter 0</description>
+          <addressOffset>0x18</addressOffset>
+          <size>32</size>
+          <resetValue>0xf9c1e06f</resetValue>
+          <fields>
+            <field>
+              <name>TIMERS_CLK_EN</name>
+              <description>Set 1 to enable TIMERS clock</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SPI01_CLK_EN</name>
+              <description>Set 1 to enable SPI01 clock</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>UART_CLK_EN</name>
+              <description>Set 1 to enable UART clock</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>WDG_CLK_EN</name>
+              <description>Set 1 to enable WDG clock</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S0_CLK_EN</name>
+              <description>Set 1 to enable I2S0 clock</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>UART1_CLK_EN</name>
+              <description>Set 1 to enable UART1 clock</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SPI2_CLK_EN</name>
+              <description>Set 1 to enable SPI2 clock</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2C_EXT0_CLK_EN</name>
+              <description>Set 1 to enable I2C_EXT0 clock</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>UHCI0_CLK_EN</name>
+              <description>Set 1 to enable UHCI0 clock</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RMT_CLK_EN</name>
+              <description>Set 1 to enable RMT clock</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PCNT_CLK_EN</name>
+              <description>Set 1 to enable PCNT clock</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>LEDC_CLK_EN</name>
+              <description>Set 1 to enable LEDC clock</description>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>UHCI1_CLK_EN</name>
+              <description>Set 1 to enable UHCI1 clock</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TIMERGROUP_CLK_EN</name>
+              <description>Set 1 to enable TIMERGROUP clock</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>EFUSE_CLK_EN</name>
+              <description>Set 1 to enable EFUSE clock</description>
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TIMERGROUP1_CLK_EN</name>
+              <description>Set 1 to enable TIMERGROUP1 clock</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SPI3_CLK_EN</name>
+              <description>Set 1 to enable SPI3 clock</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PWM0_CLK_EN</name>
+              <description>Set 1 to enable PWM0 clock</description>
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2C_EXT1_CLK_EN</name>
+              <description>Set 1 to enable I2C_EXT1 clock</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CAN_CLK_EN</name>
+              <description>Set 1 to enable CAN clock</description>
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PWM1_CLK_EN</name>
+              <description>Set 1 to enable PWM1 clock</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S1_CLK_EN</name>
+              <description>Set 1 to enable I2S1 clock</description>
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SPI2_DMA_CLK_EN</name>
+              <description>Set 1 to enable SPI2_DMA clock</description>
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>USB_CLK_EN</name>
+              <description>Set 1 to enable USB clock</description>
+              <bitOffset>23</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>UART_MEM_CLK_EN</name>
+              <description>Set 1 to enable UART_MEM clock</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PWM2_CLK_EN</name>
+              <description>Set 1 to enable PWM2 clock</description>
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PWM3_CLK_EN</name>
+              <description>Set 1 to enable PWM3 clock</description>
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SPI3_DMA_CLK_EN</name>
+              <description>Set 1 to enable SPI4 clock</description>
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>APB_SARADC_CLK_EN</name>
+              <description>Set 1 to enable APB_SARADC clock</description>
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SYSTIMER_CLK_EN</name>
+              <description>Set 1 to enable SYSTEMTIMER clock</description>
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ADC2_ARB_CLK_EN</name>
+              <description>Set 1 to enable ADC2_ARB clock</description>
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SPI4_CLK_EN</name>
+              <description>Set 1 to enable SPI4 clock</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>PERIP_CLK_EN1</name>
+          <description>peripheral clock configuration regsiter 1</description>
+          <addressOffset>0x1c</addressOffset>
+          <size>32</size>
+          <resetValue>0x600</resetValue>
+          <fields>
+            <field>
+              <name>PERI_BACKUP_CLK_EN</name>
+              <description>Set 1 to enable BACKUP clock</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CRYPTO_AES_CLK_EN</name>
+              <description>Set 1 to enable AES clock</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CRYPTO_SHA_CLK_EN</name>
+              <description>Set 1 to enable SHA clock</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CRYPTO_RSA_CLK_EN</name>
+              <description>Set 1 to enable RSA clock</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CRYPTO_DS_CLK_EN</name>
+              <description>Set 1 to enable DS clock</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CRYPTO_HMAC_CLK_EN</name>
+              <description>Set 1 to enable HMAC clock</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DMA_CLK_EN</name>
+              <description>Set 1 to enable DMA clock</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SDIO_HOST_CLK_EN</name>
+              <description>Set 1 to enable SDIO_HOST clock</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>LCD_CAM_CLK_EN</name>
+              <description>Set 1 to enable LCD_CAM clock</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>UART2_CLK_EN</name>
+              <description>Set 1 to enable UART2 clock</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>USB_DEVICE_CLK_EN</name>
+              <description>Set 1 to enable USB_DEVICE clock</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>PERIP_RST_EN0</name>
+          <description>peripheral reset configuration register0</description>
+          <addressOffset>0x20</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>TIMERS_RST</name>
+              <description>Set 1 to let TIMERS reset</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SPI01_RST</name>
+              <description>Set 1 to let SPI01 reset</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>UART_RST</name>
+              <description>Set 1 to let UART reset</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>WDG_RST</name>
+              <description>Set 1 to let WDG reset</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S0_RST</name>
+              <description>Set 1 to let I2S0 reset</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>UART1_RST</name>
+              <description>Set 1 to let UART1 reset</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SPI2_RST</name>
+              <description>Set 1 to let SPI2 reset</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2C_EXT0_RST</name>
+              <description>Set 1 to let I2C_EXT0 reset</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>UHCI0_RST</name>
+              <description>Set 1 to let UHCI0 reset</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RMT_RST</name>
+              <description>Set 1 to let RMT reset</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PCNT_RST</name>
+              <description>Set 1 to let PCNT reset</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>LEDC_RST</name>
+              <description>Set 1 to let LEDC reset</description>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>UHCI1_RST</name>
+              <description>Set 1 to let UHCI1 reset</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TIMERGROUP_RST</name>
+              <description>Set 1 to let TIMERGROUP reset</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>EFUSE_RST</name>
+              <description>Set 1 to let EFUSE reset</description>
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TIMERGROUP1_RST</name>
+              <description>Set 1 to let TIMERGROUP1 reset</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SPI3_RST</name>
+              <description>Set 1 to let SPI3 reset</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PWM0_RST</name>
+              <description>Set 1 to let PWM0 reset</description>
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2C_EXT1_RST</name>
+              <description>Set 1 to let I2C_EXT1 reset</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CAN_RST</name>
+              <description>Set 1 to let CAN reset</description>
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PWM1_RST</name>
+              <description>Set 1 to let PWM1 reset</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>I2S1_RST</name>
+              <description>Set 1 to let I2S1 reset</description>
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SPI2_DMA_RST</name>
+              <description>Set 1 to let SPI2 reset</description>
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>USB_RST</name>
+              <description>Set 1 to let USB reset</description>
+              <bitOffset>23</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>UART_MEM_RST</name>
+              <description>Set 1 to let UART_MEM reset</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PWM2_RST</name>
+              <description>Set 1 to let PWM2 reset</description>
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PWM3_RST</name>
+              <description>Set 1 to let PWM3 reset</description>
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SPI3_DMA_RST</name>
+              <description>Set 1 to let SPI3 reset</description>
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>APB_SARADC_RST</name>
+              <description>Set 1 to let APB_SARADC reset</description>
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SYSTIMER_RST</name>
+              <description>Set 1 to let SYSTIMER reset</description>
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ADC2_ARB_RST</name>
+              <description>Set 1 to let ADC2_ARB reset</description>
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SPI4_RST</name>
+              <description>Set 1 to let SPI4 reset</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>PERIP_RST_EN1</name>
+          <description>peripheral reset configuration regsiter 1</description>
+          <addressOffset>0x24</addressOffset>
+          <size>32</size>
+          <resetValue>0x1fe</resetValue>
+          <fields>
+            <field>
+              <name>PERI_BACKUP_RST</name>
+              <description>Set 1 to let BACKUP reset</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CRYPTO_AES_RST</name>
+              <description>Set 1 to let CRYPTO_AES reset</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CRYPTO_SHA_RST</name>
+              <description>Set 1 to let CRYPTO_SHA reset</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CRYPTO_RSA_RST</name>
+              <description>Set 1 to let CRYPTO_RSA reset</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CRYPTO_DS_RST</name>
+              <description>Set 1 to let CRYPTO_DS reset</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CRYPTO_HMAC_RST</name>
+              <description>Set 1 to let CRYPTO_HMAC reset</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DMA_RST</name>
+              <description>Set 1 to let DMA reset</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SDIO_HOST_RST</name>
+              <description>Set 1 to let SDIO_HOST reset</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>LCD_CAM_RST</name>
+              <description>Set 1 to let LCD_CAM reset</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>UART2_RST</name>
+              <description>Set 1 to let UART2 reset</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>USB_DEVICE_RST</name>
+              <description>Set 1 to let USB_DEVICE reset</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>BT_LPCK_DIV_INT</name>
+          <description>low power clock frequent division factor configuration regsiter</description>
+          <addressOffset>0x28</addressOffset>
+          <size>32</size>
+          <resetValue>0xff</resetValue>
+          <fields>
+            <field>
+              <name>BT_LPCK_DIV_NUM</name>
+              <description>This field is lower power clock frequent division factor</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>12</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>BT_LPCK_DIV_FRAC</name>
+          <description>low power clock configuration register</description>
+          <addressOffset>0x2c</addressOffset>
+          <size>32</size>
+          <resetValue>0x2001001</resetValue>
+          <fields>
+            <field>
+              <name>BT_LPCK_DIV_B</name>
+              <description>This field is lower power clock frequent division factor b</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>12</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>BT_LPCK_DIV_A</name>
+              <description>This field is lower power clock frequent division factor a</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>12</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>LPCLK_SEL_RTC_SLOW</name>
+              <description>Set 1 to select rtc-slow clock as rtc low power clock</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>LPCLK_SEL_8M</name>
+              <description>Set 1 to select 8m clock as rtc low power clock</description>
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>LPCLK_SEL_XTAL</name>
+              <description>Set 1 to select xtal clock as rtc low power clock</description>
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>LPCLK_SEL_XTAL32K</name>
+              <description>Set 1 to select xtal32k clock as low power clock</description>
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>LPCLK_RTC_EN</name>
+              <description>Set 1 to enable RTC low power clock</description>
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CPU_INTR_FROM_CPU_0</name>
+          <description>interrupt source register 0</description>
+          <addressOffset>0x30</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>CPU_INTR_FROM_CPU_0</name>
+              <description>Set 1 to generate cpu interrupt 0</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CPU_INTR_FROM_CPU_1</name>
+          <description>interrupt source register 1</description>
+          <addressOffset>0x34</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>CPU_INTR_FROM_CPU_1</name>
+              <description>Set 1 to generate cpu interrupt 1</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CPU_INTR_FROM_CPU_2</name>
+          <description>interrupt source register 2</description>
+          <addressOffset>0x38</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>CPU_INTR_FROM_CPU_2</name>
+              <description>Set 1 to generate cpu interrupt 2</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CPU_INTR_FROM_CPU_3</name>
+          <description>interrupt source register 3</description>
+          <addressOffset>0x3c</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>CPU_INTR_FROM_CPU_3</name>
+              <description>Set 1 to generate cpu interrupt 3</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RSA_PD_CTRL</name>
+          <description>rsa memory power control register</description>
+          <addressOffset>0x40</addressOffset>
+          <size>32</size>
+          <resetValue>0x1</resetValue>
+          <fields>
+            <field>
+              <name>RSA_MEM_PD</name>
+              <description>Set 1 to power down RSA memory. This bit has the lowest priority.When Digital Signature occupies the RSA, this bit is invalid.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RSA_MEM_FORCE_PU</name>
+              <description>Set 1 to force power up RSA memory, this bit has the second highest priority.</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RSA_MEM_FORCE_PD</name>
+              <description>Set 1 to force power down RSA memory,this bit has the highest priority.</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>EDMA_CTRL</name>
+          <description>EDMA control register</description>
+          <addressOffset>0x44</addressOffset>
+          <size>32</size>
+          <resetValue>0x1</resetValue>
+          <fields>
+            <field>
+              <name>EDMA_CLK_ON</name>
+              <description>Set 1 to enable EDMA clock.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>EDMA_RESET</name>
+              <description>Set 1 to let EDMA reset</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CACHE_CONTROL</name>
+          <description>Cache control register</description>
+          <addressOffset>0x48</addressOffset>
+          <size>32</size>
+          <resetValue>0x5</resetValue>
+          <fields>
+            <field>
+              <name>ICACHE_CLK_ON</name>
+              <description>Set 1 to enable icache clock</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ICACHE_RESET</name>
+              <description>Set 1 to let icache reset</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DCACHE_CLK_ON</name>
+              <description>Set 1 to enable dcache clock</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DCACHE_RESET</name>
+              <description>Set 1 to let dcache reset</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>EXTERNAL_DEVICE_ENCRYPT_DECRYPT_CONTROL</name>
+          <description>External memory encrypt and decrypt control register</description>
+          <addressOffset>0x4c</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>ENABLE_SPI_MANUAL_ENCRYPT</name>
+              <description>Set 1 to enable the SPI manual encrypt.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ENABLE_DOWNLOAD_DB_ENCRYPT</name>
+              <description>Set 1 to enable download DB encrypt.</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ENABLE_DOWNLOAD_G0CB_DECRYPT</name>
+              <description>Set 1 to enable download G0CB decrypt</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ENABLE_DOWNLOAD_MANUAL_ENCRYPT</name>
+              <description>Set 1 to enable download manual encrypt</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RTC_FASTMEM_CONFIG</name>
+          <description>RTC fast memory configuration register</description>
+          <addressOffset>0x50</addressOffset>
+          <size>32</size>
+          <resetValue>0x7ff00000</resetValue>
+          <fields>
+            <field>
+              <name>RTC_MEM_CRC_START</name>
+              <description>Set 1 to start the CRC of RTC memory</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RTC_MEM_CRC_ADDR</name>
+              <description>This field is used to set address of RTC memory for CRC.</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>11</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RTC_MEM_CRC_LEN</name>
+              <description>This field is used to set length of RTC memory for CRC based on start address.</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>11</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RTC_MEM_CRC_FINISH</name>
+              <description>This bit stores the status of RTC memory CRC.1 means finished.</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RTC_FASTMEM_CRC</name>
+          <description>RTC fast memory CRC control register</description>
+          <addressOffset>0x54</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>RTC_MEM_CRC_RES</name>
+              <description>This field stores the CRC result of RTC memory.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>REDUNDANT_ECO_CTRL</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x58</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>REDUNDANT_ECO_DRIVE</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>REDUNDANT_ECO_RESULT</name>
+              <description>******* Description ***********</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CLOCK_GATE</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x5c</addressOffset>
+          <size>32</size>
+          <resetValue>0x1</resetValue>
+          <fields>
+            <field>
+              <name>CLK_EN</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>SYSCLK_CONF</name>
+          <description>System clock configuration register.</description>
+          <addressOffset>0x60</addressOffset>
+          <size>32</size>
+          <resetValue>0x1</resetValue>
+          <fields>
+            <field>
+              <name>PRE_DIV_CNT</name>
+              <description>This field is used to set the count of prescaler of XTAL_CLK.</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SOC_CLK_SEL</name>
+              <description>This field is used to select soc clock.</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CLK_XTAL_FREQ</name>
+              <description>This field is used to read xtal frequency in MHz.</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>7</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>CLK_DIV_EN</name>
+              <description>Reserved.</description>
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>MEM_PVT</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x64</addressOffset>
+          <size>32</size>
+          <resetValue>0x3</resetValue>
+          <fields>
+            <field>
+              <name>MEM_PATH_LEN</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MEM_ERR_CNT_CLR</name>
+              <description>******* Description ***********</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>MONITOR_EN</name>
+              <description>******* Description ***********</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MEM_TIMING_ERR_CNT</name>
+              <description>******* Description ***********</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>MEM_VT_SEL</name>
+              <description>******* Description ***********</description>
+              <bitOffset>22</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COMB_PVT_LVT_CONF</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x68</addressOffset>
+          <size>32</size>
+          <resetValue>0x3</resetValue>
+          <fields>
+            <field>
+              <name>COMB_PATH_LEN_LVT</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>COMB_ERR_CNT_CLR_LVT</name>
+              <description>******* Description ***********</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>COMB_PVT_MONITOR_EN_LVT</name>
+              <description>******* Description ***********</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COMB_PVT_NVT_CONF</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x6c</addressOffset>
+          <size>32</size>
+          <resetValue>0x3</resetValue>
+          <fields>
+            <field>
+              <name>COMB_PATH_LEN_NVT</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>COMB_ERR_CNT_CLR_NVT</name>
+              <description>******* Description ***********</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>COMB_PVT_MONITOR_EN_NVT</name>
+              <description>******* Description ***********</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COMB_PVT_HVT_CONF</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x70</addressOffset>
+          <size>32</size>
+          <resetValue>0x3</resetValue>
+          <fields>
+            <field>
+              <name>COMB_PATH_LEN_HVT</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>COMB_ERR_CNT_CLR_HVT</name>
+              <description>******* Description ***********</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>write-only</access>
+            </field>
+            <field>
+              <name>COMB_PVT_MONITOR_EN_HVT</name>
+              <description>******* Description ***********</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COMB_PVT_ERR_LVT_SITE0</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x74</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>COMB_TIMING_ERR_CNT_LVT_SITE0</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COMB_PVT_ERR_NVT_SITE0</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x78</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>COMB_TIMING_ERR_CNT_NVT_SITE0</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COMB_PVT_ERR_HVT_SITE0</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x7c</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>COMB_TIMING_ERR_CNT_HVT_SITE0</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COMB_PVT_ERR_LVT_SITE1</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x80</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>COMB_TIMING_ERR_CNT_LVT_SITE1</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COMB_PVT_ERR_NVT_SITE1</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x84</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>COMB_TIMING_ERR_CNT_NVT_SITE1</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COMB_PVT_ERR_HVT_SITE1</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x88</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>COMB_TIMING_ERR_CNT_HVT_SITE1</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COMB_PVT_ERR_LVT_SITE2</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x8c</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>COMB_TIMING_ERR_CNT_LVT_SITE2</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COMB_PVT_ERR_NVT_SITE2</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x90</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>COMB_TIMING_ERR_CNT_NVT_SITE2</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COMB_PVT_ERR_HVT_SITE2</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x94</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>COMB_TIMING_ERR_CNT_HVT_SITE2</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COMB_PVT_ERR_LVT_SITE3</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x98</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>COMB_TIMING_ERR_CNT_LVT_SITE3</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COMB_PVT_ERR_NVT_SITE3</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0x9c</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>COMB_TIMING_ERR_CNT_NVT_SITE3</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COMB_PVT_ERR_HVT_SITE3</name>
+          <description>******* Description ***********</description>
+          <addressOffset>0xa0</addressOffset>
+          <size>32</size>
+          <fields>
+            <field>
+              <name>COMB_TIMING_ERR_CNT_HVT_SITE3</name>
+              <description>******* Description ***********</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DATE</name>
+          <description>version register</description>
+          <addressOffset>0xffc</addressOffset>
+          <size>32</size>
+          <resetValue>0x2101220</resetValue>
+          <fields>
+            <field>
+              <name>DATE</name>
+              <description>version register</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>28</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+      </registers>
     </peripheral>
     <peripheral>
       <name>TIMG0</name>
