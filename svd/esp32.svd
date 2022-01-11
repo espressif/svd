@@ -4,10 +4,10 @@
   <vendorID>ESPRESSIF</vendorID>
   <name>ESP32</name>
   <series>ESP32</series>
-  <version>2</version>
+  <version>3</version>
   <description>32-bit MCU &amp; 2.4 GHz Wi-Fi &amp; Bluetooth/Bluetooth LE</description>
   <licenseText>
-    Copyright 2021 Espressif Systems (Shanghai) PTE LTD
+    Copyright 2022 Espressif Systems (Shanghai) PTE LTD
 
     Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
     you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@
   <peripherals>
     <peripheral>
       <name>AES</name>
-      <description>AES Accelerator</description>
+      <description>AES (Advanced Encryption Standard) Accelerator</description>
       <groupName>AES</groupName>
       <baseAddress>0x3ff01000</baseAddress>
       <addressBlock>
@@ -9354,7 +9354,7 @@
     </peripheral>
     <peripheral>
       <name>FLASH_ENCRYPTION</name>
-      <description>Peripheral FLASH_ENCRYPTION</description>
+      <description>Flash Encryption Peripheral</description>
       <groupName>FLASH_ENCRYPTION</groupName>
       <baseAddress>0x3ff46000</baseAddress>
       <addressBlock>
@@ -13892,6 +13892,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -13966,6 +13973,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -14048,6 +14062,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -14122,6 +14143,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -14204,6 +14232,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -14278,6 +14313,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -14360,6 +14402,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -14434,6 +14483,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -14516,6 +14572,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -14590,6 +14653,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -14672,6 +14742,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -14746,6 +14823,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -14828,6 +14912,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -14902,6 +14993,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -14984,6 +15082,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -15058,6 +15163,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -15140,6 +15252,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -15214,6 +15333,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -15296,6 +15422,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -15370,6 +15503,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -15452,6 +15592,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -15526,6 +15673,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -15608,6 +15762,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -15682,6 +15843,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -15764,6 +15932,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -15838,6 +16013,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -15920,6 +16102,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -15994,6 +16183,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -16076,6 +16272,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -16150,6 +16353,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -16232,6 +16442,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -16306,6 +16523,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -16388,6 +16612,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -16462,6 +16693,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -16544,6 +16782,13 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>MCU_IE</name>
               <description>Input enable of the pad during sleep mode. 1: input enabled; 0: input disabled.</description>
               <bitOffset>4</bitOffset>
@@ -16618,6 +16863,13 @@
               <name>MCU_WPD</name>
               <description>Pull-down enable of the pad during sleep mode. 1: internal pull-down enabled; 0: internal pull-down disabled.</description>
               <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MCU_WPU</name>
+              <description>Pull-up enable of the pad during sleep mode. 1: internal pull-up enabled; 0: internal pull-up disabled.</description>
+              <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -19799,7 +20051,7 @@
     </peripheral>
     <peripheral>
       <name>PWM0</name>
-      <description>Motor Control PWM</description>
+      <description>Motor Control Pulse-Width Modulation</description>
       <groupName>MCPWM</groupName>
       <baseAddress>0x3ff5e000</baseAddress>
       <addressBlock>
@@ -23619,28 +23871,10 @@
     <peripheral derivedFrom="PWM0">
       <name>PWM1</name>
       <baseAddress>0x3ff6c000</baseAddress>
-      <description>Motor Control PWM</description>
+      <description>Motor Control Pulse-Width Modulation</description>
       <interrupt>
         <name>PWM1</name>
         <value>40</value>
-      </interrupt>
-    </peripheral>
-    <peripheral derivedFrom="PWM0">
-      <name>PWM2</name>
-      <baseAddress>0x3ff6f000</baseAddress>
-      <description>Motor Control PWM</description>
-      <interrupt>
-        <name>PWM2</name>
-        <value>41</value>
-      </interrupt>
-    </peripheral>
-    <peripheral derivedFrom="PWM0">
-      <name>PWM3</name>
-      <baseAddress>0x3ff70000</baseAddress>
-      <description>Motor Control PWM</description>
-      <interrupt>
-        <name>PWM3</name>
-        <value>42</value>
       </interrupt>
     </peripheral>
     <peripheral>
@@ -47759,445 +47993,6 @@ IDINTEN[4]: DU Interrupt.</description>
       </interrupt>
     </peripheral>
     <peripheral>
-      <name>SYSCON</name>
-      <description>Peripheral SYSCON</description>
-      <groupName>SYSCON</groupName>
-      <baseAddress>0x3ff66000</baseAddress>
-      <addressBlock>
-        <offset>0x0</offset>
-        <size>0x44</size>
-        <usage>registers</usage>
-      </addressBlock>
-      <registers>
-        <register>
-          <name>SYSCLK_CONF</name>
-          <description/>
-          <addressOffset>0x0</addressOffset>
-          <size>32</size>
-          <resetValue>0x2000</resetValue>
-          <fields>
-            <field>
-              <name>PRE_DIV_CNT</name>
-              <description/>
-              <bitOffset>0</bitOffset>
-              <bitWidth>10</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>CLK_320M_EN</name>
-              <description/>
-              <bitOffset>10</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>CLK_EN</name>
-              <description/>
-              <bitOffset>11</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>RST_TICK_CNT</name>
-              <description/>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>QUICK_CLK_CHNG</name>
-              <description/>
-              <bitOffset>13</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>XTAL_TICK_CONF</name>
-          <description/>
-          <addressOffset>0x4</addressOffset>
-          <size>32</size>
-          <resetValue>0x27</resetValue>
-          <fields>
-            <field>
-              <name>XTAL_TICK_NUM</name>
-              <description/>
-              <bitOffset>0</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>PLL_TICK_CONF</name>
-          <description/>
-          <addressOffset>0x8</addressOffset>
-          <size>32</size>
-          <resetValue>0x4f</resetValue>
-          <fields>
-            <field>
-              <name>PLL_TICK_NUM</name>
-              <description/>
-              <bitOffset>0</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>CK8M_TICK_CONF</name>
-          <description/>
-          <addressOffset>0xc</addressOffset>
-          <size>32</size>
-          <resetValue>0xb</resetValue>
-          <fields>
-            <field>
-              <name>CK8M_TICK_NUM</name>
-              <description/>
-              <bitOffset>0</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>SARADC_CTRL</name>
-          <description/>
-          <addressOffset>0x10</addressOffset>
-          <size>32</size>
-          <resetValue>0x7f8240</resetValue>
-          <fields>
-            <field>
-              <name>SARADC_START_FORCE</name>
-              <description/>
-              <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_START</name>
-              <description/>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_SAR2_MUX</name>
-              <description>1: SAR ADC2 is controlled by DIG ADC2 CTRL  0: SAR ADC2 is controlled by PWDET CTRL</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_WORK_MODE</name>
-              <description>0: single mode  1: double mode  2: alternate mode</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_SAR_SEL</name>
-              <description>0: SAR1  1: SAR2  only work for single SAR mode</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_SAR_CLK_GATED</name>
-              <description/>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_SAR_CLK_DIV</name>
-              <description>SAR clock divider</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_SAR1_PATT_LEN</name>
-              <description>0 ~ 15 means length 1 ~ 16</description>
-              <bitOffset>15</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_SAR2_PATT_LEN</name>
-              <description>0 ~ 15 means length 1 ~ 16</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_SAR1_PATT_P_CLEAR</name>
-              <description>clear the pointer of pattern table for DIG ADC1 CTRL</description>
-              <bitOffset>23</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_SAR2_PATT_P_CLEAR</name>
-              <description>clear the pointer of pattern table for DIG ADC2 CTRL</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_DATA_SAR_SEL</name>
-              <description>1: sar_sel will be coded by the MSB of the 16-bit output data  in this case the resolution should not be larger than 11 bits.</description>
-              <bitOffset>25</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_DATA_TO_I2S</name>
-              <description>1: I2S input data is from SAR ADC (for DMA)  0: I2S input data is from GPIO matrix</description>
-              <bitOffset>26</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>SARADC_CTRL2</name>
-          <description/>
-          <addressOffset>0x14</addressOffset>
-          <size>32</size>
-          <resetValue>0x1fe</resetValue>
-          <fields>
-            <field>
-              <name>SARADC_MEAS_NUM_LIMIT</name>
-              <description/>
-              <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_MAX_MEAS_NUM</name>
-              <description>max conversion number</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_SAR1_INV</name>
-              <description>1: data to DIG ADC1 CTRL is inverted  otherwise not</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_SAR2_INV</name>
-              <description>1: data to DIG ADC2 CTRL is inverted  otherwise not</description>
-              <bitOffset>10</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>SARADC_FSM</name>
-          <description/>
-          <addressOffset>0x18</addressOffset>
-          <size>32</size>
-          <resetValue>0x208ff08</resetValue>
-          <fields>
-            <field>
-              <name>SARADC_RSTB_WAIT</name>
-              <description/>
-              <bitOffset>0</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_STANDBY_WAIT</name>
-              <description/>
-              <bitOffset>8</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_START_WAIT</name>
-              <description/>
-              <bitOffset>16</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SARADC_SAMPLE_CYCLE</name>
-              <description>sample cycles</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>SARADC_SAR1_PATT_TAB1</name>
-          <description/>
-          <addressOffset>0x1c</addressOffset>
-          <size>32</size>
-          <resetValue>0xf0f0f0f</resetValue>
-          <fields>
-            <field>
-              <name>SARADC_SAR1_PATT_TAB1</name>
-              <description>item 0 ~ 3 for pattern table 1 (each item one byte)</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>SARADC_SAR1_PATT_TAB2</name>
-          <description/>
-          <addressOffset>0x20</addressOffset>
-          <size>32</size>
-          <resetValue>0xf0f0f0f</resetValue>
-          <fields>
-            <field>
-              <name>SARADC_SAR1_PATT_TAB2</name>
-              <description>Item 4 ~ 7 for pattern table 1 (each item one byte)</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>SARADC_SAR1_PATT_TAB3</name>
-          <description/>
-          <addressOffset>0x24</addressOffset>
-          <size>32</size>
-          <resetValue>0xf0f0f0f</resetValue>
-          <fields>
-            <field>
-              <name>SARADC_SAR1_PATT_TAB3</name>
-              <description>Item 8 ~ 11 for pattern table 1 (each item one byte)</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>SARADC_SAR1_PATT_TAB4</name>
-          <description/>
-          <addressOffset>0x28</addressOffset>
-          <size>32</size>
-          <resetValue>0xf0f0f0f</resetValue>
-          <fields>
-            <field>
-              <name>SARADC_SAR1_PATT_TAB4</name>
-              <description>Item 12 ~ 15 for pattern table 1 (each item one byte)</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>SARADC_SAR2_PATT_TAB1</name>
-          <description/>
-          <addressOffset>0x2c</addressOffset>
-          <size>32</size>
-          <resetValue>0xf0f0f0f</resetValue>
-          <fields>
-            <field>
-              <name>SARADC_SAR2_PATT_TAB1</name>
-              <description>item 0 ~ 3 for pattern table 2 (each item one byte)</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>SARADC_SAR2_PATT_TAB2</name>
-          <description/>
-          <addressOffset>0x30</addressOffset>
-          <size>32</size>
-          <resetValue>0xf0f0f0f</resetValue>
-          <fields>
-            <field>
-              <name>SARADC_SAR2_PATT_TAB2</name>
-              <description>Item 4 ~ 7 for pattern table 2 (each item one byte)</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>SARADC_SAR2_PATT_TAB3</name>
-          <description/>
-          <addressOffset>0x34</addressOffset>
-          <size>32</size>
-          <resetValue>0xf0f0f0f</resetValue>
-          <fields>
-            <field>
-              <name>SARADC_SAR2_PATT_TAB3</name>
-              <description>Item 8 ~ 11 for pattern table 2 (each item one byte)</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>SARADC_SAR2_PATT_TAB4</name>
-          <description/>
-          <addressOffset>0x38</addressOffset>
-          <size>32</size>
-          <resetValue>0xf0f0f0f</resetValue>
-          <fields>
-            <field>
-              <name>SARADC_SAR2_PATT_TAB4</name>
-              <description>Item 12 ~ 15 for pattern table 2 (each item one byte)</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>APLL_TICK_CONF</name>
-          <description/>
-          <addressOffset>0x3c</addressOffset>
-          <size>32</size>
-          <resetValue>0x63</resetValue>
-          <fields>
-            <field>
-              <name>APLL_TICK_NUM</name>
-              <description/>
-              <bitOffset>0</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>DATE</name>
-          <description/>
-          <addressOffset>0x7c</addressOffset>
-          <size>32</size>
-          <resetValue>0x16042000</resetValue>
-          <fields>
-            <field>
-              <name>DATE</name>
-              <description/>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-      </registers>
-    </peripheral>
-    <peripheral>
       <name>TIMG0</name>
       <description>Timer Group</description>
       <groupName>TIMG</groupName>
@@ -49280,7 +49075,7 @@ IDINTEN[4]: DU Interrupt.</description>
       <baseAddress>0x3ff40000</baseAddress>
       <addressBlock>
         <offset>0x0</offset>
-        <size>0x7c</size>
+        <size>0x78</size>
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
@@ -49288,12 +49083,6 @@ IDINTEN[4]: DU Interrupt.</description>
         <value>34</value>
       </interrupt>
       <registers>
-        <register>
-          <name>FIFO_AHB</name>
-          <description/>
-          <addressOffset>0x0</addressOffset>
-          <size>32</size>
-        </register>
         <register>
           <name>FIFO</name>
           <description/>
@@ -50771,7 +50560,7 @@ IDINTEN[4]: DU Interrupt.</description>
     </peripheral>
     <peripheral>
       <name>UHCI0</name>
-      <description>Peripheral UHCI0</description>
+      <description>Universal Host Controller Interface</description>
       <groupName>UHCI</groupName>
       <baseAddress>0x3ff54000</baseAddress>
       <addressBlock>
@@ -52477,6 +52266,15 @@ IDINTEN[4]: DU Interrupt.</description>
           </fields>
         </register>
       </registers>
+    </peripheral>
+    <peripheral derivedFrom="UHCI0">
+      <name>UHCI1</name>
+      <baseAddress>0x3ff4c000</baseAddress>
+      <description>Universal Host Controller Interface</description>
+      <interrupt>
+        <name>UHCI1</name>
+        <value>13</value>
+      </interrupt>
     </peripheral>
     <peripheral>
       <name>WDEV</name>
