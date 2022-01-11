@@ -4,10 +4,10 @@
   <vendorID>ESPRESSIF</vendorID>
   <name>ESP32-C3</name>
   <series>ESP32-C3</series>
-  <version>3</version>
+  <version>4</version>
   <description>32-bit RISC-V MCU &amp; 2.4 GHz Wi-Fi &amp; Bluetooth 5 (LE)</description>
   <licenseText>
-    Copyright 2021 Espressif Systems (Shanghai) PTE LTD
+    Copyright 2022 Espressif Systems (Shanghai) PTE LTD
 
     Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
     you may not use this file except in compliance with the License.
@@ -11278,21 +11278,21 @@
           <size>32</size>
           <fields>
             <field>
-              <name>FUNC_IN_SEL</name>
+              <name>IN_SEL</name>
               <description>set this value: s=-53: connect GPIO[s] to this port. s=x38: set this port always high level. s=x3C: set this port always low level.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>5</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>FUNC_IN_INV_SEL</name>
+              <name>IN_INV_SEL</name>
               <description>set this bit to invert input signal. 1:invert. :not invert.</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SIG_IN_SEL</name>
+              <name>SEL</name>
               <description>set this bit to bypass GPIO. 1:do not bypass GPIO. :bypass GPIO.</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
@@ -11310,28 +11310,28 @@
           <resetValue>0x80</resetValue>
           <fields>
             <field>
-              <name>FUNC_OUT_SEL</name>
+              <name>OUT_SEL</name>
               <description>The value of the bits: &lt;=s&lt;=256. Set the value to select output signal. s=-255: output of GPIO[n] equals input of peripheral[s]. s=256: output of GPIO[n] equals GPIO_OUT_REG[n].</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>FUNC_OUT_INV_SEL</name>
+              <name>INV_SEL</name>
               <description>set this bit to invert output signal.1:invert.:not invert.</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>FUNC_OEN_SEL</name>
+              <name>OEN_SEL</name>
               <description>set this bit to select output enable signal.1:use GPIO_ENABLE_REG[n] as output enable signal.:use peripheral output enable signal.</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>FUNC_OEN_INV_SEL</name>
+              <name>OEN_INV_SEL</name>
               <description>set this bit to invert output enable signal.1:invert.:not invert.</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
@@ -13042,7 +13042,7 @@
       <name>I2S</name>
       <description>I2S (Inter-IC Sound) Controller</description>
       <groupName>I2S</groupName>
-      <baseAddress>0x6004b000</baseAddress>
+      <baseAddress>0x6002d000</baseAddress>
       <addressBlock>
         <offset>0x0</offset>
         <size>0x5c</size>
