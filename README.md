@@ -12,11 +12,9 @@ From the [CMSIS System View Description documentation]:
 
 This format was intended for use with ARM microcontrollers, however it is still applicable to other architectures. SVD files can be used by some tools (such as [svd2rust]) to generate libraries for low-level hardware access.
 
+[cmsis system view description documentation]: https://www.keil.com/pack/doc/CMSIS/SVD/html/
+[svd2rust]: https://github.com/rust-embedded/svd2rust
+
 ## License
 
-The files in this repository are licensed under the [MIT license], which you can find in the [LICENSE](LICENSE) file.
-
-
-[svd2rust]: https://github.com/rust-embedded/svd2rust
-[CMSIS System View Description documentation]: https://www.keil.com/pack/doc/CMSIS/SVD/html/
-[MIT license]: https://opensource.org/licenses/MIT
+The files in this repository are distributed under the Apache License, Version 2.0 ([LICENSE](LICENSE) or http://www.apache.org/licenses/LICENSE-2.0)
