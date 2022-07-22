@@ -1,0 +1,26 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      # Check out this repository
+      - uses: actions/checkout@v2
+
+      # Determine the current date, used for the tag and release name
+      - name: Determine current date
+        run: |
+          echo "CURRENT_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      # Create a release containing all SVDs and using the current date as the
+      # tag/release name
+      - uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: "svd/*.svd"
+          tag: ${{ env.CURRENT_DATE }}
